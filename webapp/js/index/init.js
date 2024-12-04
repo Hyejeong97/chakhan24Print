@@ -1,5 +1,19 @@
 $(document).ready(function(){
 
+	//추가 클릭시
+	$(".addBtn").on('click', function(){
+		var table = $("#table01");
+		var tbody = table.find("tbody");
+		var tfoot = table.find("tfoot");
+		var tr = tfoot.find("tr").clone();
+		if(tbody.find(".noData").length > 0){
+			tbody.find(".noData").remove();
+		}
+		tbody.append(tr);
+		}
+	);
+		
+
 	var sections = $('section')
 	  , nav = $('nav')
 	  , nav_height = nav.outerHeight();
