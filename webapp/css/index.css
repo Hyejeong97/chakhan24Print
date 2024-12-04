@@ -201,12 +201,12 @@ a.control_next {
 }
 
 /* 스크롤바 스타일링 */
-#table01::-webkit-scrollbar {
+.src01::-webkit-scrollbar {
   width: 10px; /* 스크롤바의 너비를 지정합니다. */
   height: 10px;
 }
 
-#table01::-webkit-scrollbar-thumb {
+.src01::-webkit-scrollbar-thumb {
   background-color: #888; /* 스크롤바의 색상을 지정합니다. */
   border-radius: 10px; /* 스크롤바를 둥글게 만듭니다. */
    height: 5px;
