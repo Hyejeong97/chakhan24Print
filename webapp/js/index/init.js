@@ -40,7 +40,7 @@ $(document).ready(function(){
 		
                 // 리스트 항목 가져오기
 		var listItems = new Array();
-		$.each(tr, function(item){
+		$.each(tr, function(i, item){
 			var obj = new Object();
 			var name = $(item).find(".productNm").val();
 			var amt = $(item).find(".productAmt").val();
@@ -55,7 +55,10 @@ $(document).ready(function(){
 
                 // PDF에 리스트 항목 추가
                 listItems.forEach((item, index) => {
-                    doc.text(item, 10, 10 + index * 10);  // y 위치는 10씩 증가
+                    index++;
+                    doc.text(item.name, 10, 10 + index * 10);  // y 위치는 10씩 증가
+		    doc.text(item.amt, 10, 10 + index * 20);
+		    doc.text(item.yn, 10, 10 + index * 30);
                 });
 
                 // PDF 파일 다운로드
