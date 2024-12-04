@@ -12,6 +12,22 @@ $(document).ready(function(){
 		tbody.append(tr);
 		}
 	);
+
+	//삭제 클릭시
+	$(".delBtn").on('click', function(){
+		var table = $("#table01");
+		var tbody = table.find("tbody");
+		var tfoot = table.find("tfoot");
+		var chk = $(".chkYn:checked");
+		if(chk.length == 0){
+			alert("삭제할 목록을 선택해 주세요.");
+			return false;
+		}
+		$.each(chk, function(){
+			$(this).closest("tr).remove();
+		});
+		}
+	);
 		
 
 	var sections = $('section')
