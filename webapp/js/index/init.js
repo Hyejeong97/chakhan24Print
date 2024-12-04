@@ -63,9 +63,9 @@ $(document).ready(function(){
         doc.addImage(imgUrl, 'PNG', 5, yPosition - 5, 200, 30);  // (x, y, 너비, 높이)
 
         // 텍스트 추가 (이미지 위에)
-        doc.text(item.name, 10, yPosition);
-        doc.text(item.amt, 100, yPosition);  // 예시로 x좌표 100에 추가
-        doc.text(item.yn, 150, yPosition);  // 예시로 x좌표 150에 추가
+        doc.text(item.name, 10, yPosition + 5);
+        doc.text(item.amt, 100, yPosition + 13);  // 예시로 x좌표 100에 추가
+      //  doc.text(item.yn, 150, yPosition);  // 예시로 x좌표 150에 추가
     });
 
     // PDF 파일 다운로드
