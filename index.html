@@ -1,0 +1,442 @@
+<html class="kor">
+<head>
+	<meta charset="UTF-8">
+	<title>카인드카페</title>
+	<meta property="og:title" content="카인드카페">
+	<meta property="og:url" content="www.kindcafe.kr">
+	<meta property="og:image" content="./webapp/img/kindcafe_thumb.jpg">
+	<meta property="og:description" content="동종 업계 최저가 창업! 카인드카페에서 만나 보세요.">
+	<script type="text/javascript" src="./webapp/jquery/jquery-3.7.0.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a140a6ef5eb24d9195c32555b364b653"></script>
+	<script type="text/javascript" src="./webapp/js/index/init.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+	<link href="https://webfontworld.github.io/tway/TwaySky.css" rel="stylesheet">
+	<link href="https://webfontworld.github.io/tway/TwayAir.css" rel="stylesheet">
+	<link href="https://webfontworld.github.io/tway/TwayFly.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+<!-- 	<div id="logo"> -->
+<!-- 		chackhan24 -->
+<!-- 	</div> -->
+  <ul>
+    <li><a href="#1" style="font-size:20px;margin-right:15px;">KIND CAFE</a></li>
+    <li><a href="#2" style="font-size:20px;margin-right:15px;">About Us</a></li>
+    <li><a href="#3" style="font-size:20px;margin-right:15px;">창업비용</a></li>
+    <li><a href="#4" style="font-size:20px;margin-right:15px;">오픈준비</a></li>
+   <!-- <li><a href="#5">무인매장</a></li> -->
+    <li><a href="#5" style="font-size:20px;margin-right:15px;">상담문의</a></li>
+    
+  </ul>
+</nav>
+
+<div class="sections">
+<section id="1" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; background-size: cover; background-repeat: no-repeat; position: relative;">
+    <img src="./webapp/img/mainVideo.gif" style="opacity:0.5;width: 100%; height: 100%; object-fit: cover;" loop="infinite" />
+    <div class="text-overlay" style="position: absolute; top: 40%; left: 50%; transform: translateX(-50%); text-align: center; color: white; z-index: 1;">
+        <div class="maxTitle2 lineSet" style="margin:-20px;color:#fff;text-shadow: -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black, 2px 2px 0px black;">대표가 직접 매장 운영 중</div>
+        <div class="maxTitle2 lineSet" style="margin:-20px;margin-top:20px;color:#fff;text-shadow: -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black, 2px 2px 0px black;">다양한 경험을 보유하여</div>
+        <div class="maxTitle2 lineSet" style="margin-top:20px;color:#fff;text-shadow: -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black, 2px 2px 0px black;">믿음이 가는 브랜드</div>
+    </div>
+</section>
+<section id="2" class="image-description-container" style="display: flex;align-items: center;">
+  <div class="chackhan24" style="float:right;border-radius:8px;background-color:#664017;padding:15px;">
+	  <a href="www.착한가게24.kr" style="font-size:20px;color:#fff;" target="_blank">착한가게24 ➯</a>
+  </div>
+  <div class="scrollable">
+    <div class="row">
+      <div class="item">
+        <div class="rounded-rectangle" style="background-image: url('./webapp/img/1.jpg'); background-repeat: no-repeat; position: relative;">
+		    <span class="fontSet25" style="position: absolute; bottom: 33%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	상권 분석
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 22%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	30년 경력 전문가의 컨설팅,
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	창업주님의 <span class="lineSet fontB">안정적인 매출</span>을 위한
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 8%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	상권 분석 컨설팅을 진행합니다.
+		    </span>
+		</div>
+      </div>
+      <div class="item">
+        <div class="rounded-rectangle" style="background-size: 100% 235px;background-image: url('./webapp/img/snack.jpg'); background-repeat: no-repeat; position: relative;">
+		    <span class="fontSet25" style="position: absolute; bottom: 33%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	Snack & Drink
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 23%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	<span class="lineSet fontB">매출 비중의 40%</span>
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	다양한 스낵류와 음료 <span class="lineSet fontB">유통망 설계</span>와
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	더불어 트랜드를 찾는 노하우를
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 알려드립니다.
+		    </span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="rounded-rectangle" style="background-size: 100% 235px;background-image: url('./webapp/img/iceCream.jpg'); background-repeat: no-repeat; position: relative;">
+		    <span class="fontSet25" style="position: absolute; bottom: 33%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	Ice Cream
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 23%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	<span class="lineSet fontB">매출 비중의 60%</span>
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	국민 간식 아이스크림,
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 구색 맞춤이 가장 중요하며
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 냉동고는 <span class="lineSet fontB">무상으로 지원</span> 됩니다.
+		    </span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="rounded-rectangle" style="background-size: 100% 235px;background-image: url('./webapp/img/nabu04.jpg'); background-repeat: no-repeat; position: relative;">
+		    <span class="fontSet25" style="position: absolute; bottom: 33%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	냉동식품
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 23%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	타사 대비 다양한 아이템,
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	<span class="lineSet fontB">30여가지의 냉동식품</span>
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 착한가게24만의 <span class="lineSet fontB">시그니처 유통경로</span> 를
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 소개해드립니다.
+		    </span>
+        </div>
+      </div>
+      <div class="item">
+         <div class="rounded-rectangle" style="background-size: 100% 235px;background-image: url('./webapp/img/interior2.jpg'); background-repeat: no-repeat; position: relative;">
+		    <span class="fontSet25" style="position: absolute; bottom: 33%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	인테리어 비용 절감
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 23%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	카인드카페만의 착한가격
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	창업주님의 비용 절감을 위해
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 <span class="lineSet fontB">최소한의 인테리어</span> 시공만
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	진행합니다.
+		    </span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="rounded-rectangle" style="background-size: 100% 235px;background-image: url('./webapp/img/sahumng.jpg'); background-repeat: no-repeat; position: relative;">
+		    <span class="fontSet25" style="position: absolute; bottom: 33%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	사후관리
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 23%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	<span class="lineSet fontB">기타 문의사항</span> 이 생기신다고요?
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	창업주님이 전문가가 되는 그 날까지,
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	 카인드카페는 <span class="lineSet fontB">지속적인 사후관리</span> 를
+		    </span>
+		    <span class="fontSetG20" style="position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%);padding:10px;">
+		        	제공합니다.
+		    </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="3" style="">
+	  <div style="width:100%;height:50px;text-align:center;">
+		<span class="fontSetLg" style="display:inline-block;">동종 업계 유일</span> &nbsp;&nbsp;
+		<span class="fontSetCol" style="display:inline-block;">"최저가 창업"</span><br>
+		<span class="fontSet lineSet">가맹점주와 소비자 모두에게 착한 카인드카페</span>
+      </div>
+      <div class="mt50" style="width:100%;display: flex;">
+		<table class="type07" style="margin:auto;">
+		  <colgroup>
+		  	<col width="20%">
+		  	<col width="20%">
+			<col width="20%">
+		  	<col width="20%">
+			<col width="20%">
+		  </colgroup>
+		  <thead>
+		  <tr>
+		    <th scope="cols" class="fontSet18">커피머신기</th>
+		    <th scope="cols" colspan="2" class="fontSet18">구매방식</th>
+		    <th scope="cols" class="fontSet18">견적(만원)</th>
+		    <th scope="cols" class="fontSet18">선납금</th>
+		  </tr>
+		  </thead>
+		  <tbody>
+		  <tr>
+		    <td scope="row" rowspan="5">
+			    <span class="fontSet18">일반형</span><br>
+			    제빙기 150kg<br>
+			    용량 2kg
+		    </td>
+		    <td class="" colspan="2">일시불</td>
+		    <td class="cost">2,300</td>
+		    <td class="detail">-</td>
+		  </tr>
+		  <tr>
+		    <td class="" rowspan="4">렌탈</td>
+		    <td class="" rowspan="2">24개월</td>
+		    <td class="cost">86.3</td>
+		    <td class="cost">500</td>  
+		  </tr>
+		  <tr>
+		    <td class="cost">62.3</td>
+		    <td class="cost">1,000</td>
+		  </tr>
+		  <tr>
+		    <td class="" rowspan="2">36개월</td>
+		    <td class="cost">60</td>
+		    <td class="cost">500</td>  
+		  </tr>
+		  <tr>
+		    <td class="cost">43.3</td>
+		    <td class="cost">1,000</td>  
+		  </tr>
+		  <tr>
+		    <td scope="row" rowspan="5">
+			    <span class="fontSet18">고급형</span><br>
+			    제빙기 150kg<br>
+			    용량 4kg
+		    </td>
+		    <td class="" colspan="2">일시불</td>
+		    <td class="cost">2,400</td>
+		    <td class="detail">-</td>
+		  </tr>
+		  <tr>
+		    <td class="" rowspan="4">렌탈</td>
+		    <td class="" rowspan="2">24개월</td>
+		    <td class="cost">91</td>
+		    <td class="cost">500</td>  
+		  </tr>
+		  <tr>
+		    <td class="cost">67</td>
+		    <td class="cost">1,000</td>
+		  </tr>
+		  <tr>
+		    <td class="" rowspan="2">36개월</td>
+		    <td class="cost">63.3</td>
+		    <td class="cost">500</td>  
+		  </tr>
+		  <tr>
+		    <td class="cost">46.6</td>
+		    <td class="cost">1,000</td>  
+		  </tr>
+		  <tr>
+		    <td class="" colspan="3">
+			    하부장<br>
+			    (인테리어 자체 진행 시 미포함)
+		    </td>
+		    <td class="cost">168</td>  
+		    <td class="" rowspan="3">-</td>  
+		  </tr>
+		  <tr>
+		    <td class="" colspan="3">
+			    부자재 (초도 물품비)
+		    </td>
+		    <td class="cost">250</td>  
+		  </tr>
+		  <tr>
+		    <td class="" colspan="3">
+			   작업비
+		    </td>
+		    <td class="cost">100</td>  
+		  </tr>
+		  </tbody>
+		</table>
+      </div>
+  </section>
+  <section id="4">
+  	<div class="mt80"></div>
+		<div style="width:100%;height:50px;text-align:center;">
+		<span class="fontSetLg" style="display:inline-block;">오픈 준비 안내</span>
+      </div>
+      
+	<div class="mt10">
+		<table class="type07">
+		  <colgroup>
+		  	<col width="150px">
+		  	<col width="150px">
+		  	<col width="150px">
+		  </colgroup>
+		  <thead>
+		  <tr>
+		    <th scope="cols">구분</th>
+		    <th scope="cols">비고</th>
+		    <th scope="cols">소요시간</th>
+		  </tr>
+		  </thead>
+		  <tbody>
+		  <tr>
+		    <td scope="row">전기증설, 전기레일</td>
+		    <td class="detail">-</td>
+		    <td class="cost">
+		    	<span class="">7일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row">진열대</td>
+		    <td class="detail">
+		    	<span class="lineGraySet">가맹점주 선택사항</span>
+		    </td>
+		    <td class="cost">
+		    	<span class="">2 ~ 3일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row">냉동고, 아이스크림</td>
+		    <td class="detail">
+		    	-
+		    </td>
+		    <td class="cost">
+		    	<span class="">2 ~ 3일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row">과자류</td>
+		    <td class="detail">
+				<span class="lineGraySet">가맹점주 선택사항</span>
+			</td>
+		    <td class="cost">
+		    	<span class="">2 ~ 3일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row">음료 냉장고</td>
+		    <td class="detail">
+		    	<span class="lineGraySet">가맹점주 선택사항</span>
+		    </td>
+		    <td class="cost">
+		    	<span class="">2 ~ 3일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row">키오스크</td>
+		    <td class="detail">-</td>
+		    <td class="cost">
+		    	<span class="">2 ~ 3일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row">CCTV</td>
+		    <td class="detail">
+		    	-
+		    </td>
+		    <td class="cost">
+		    	<span class="">1 ~ 2일</span>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td scope="row" colspan="2" style="background-color:#DDECCA;">합계</td>
+		    <td class="cost">
+				<span class="lineRedSet">10 ~ 12일</span>
+		    </td>
+		  </tr>
+		  </tbody>
+		</table>
+      </div>
+
+		<div class="mt20"></div>
+      
+	<div style="width:100%;height:50px;text-align:center;">
+		<span class="fontJnSet" style="display:inline-block;">
+			카인드카페와 계약 즉시 모든 작업이 진행됩니다.
+		</span><br>
+		<span class="fontJnSet" style="display:inline-block;">
+			위의 작업 중 동시에 진행되는 사항이 포함되어 공사기간은 대략 <span class="lineSet">10 ~ 12일</span> 정도입니다.<br>
+		</span><br>
+		<span class="fontJnSet" style="display:inline-block;">
+			가맹점주의 입장에 서서 <span class="lineSet">빠른 오픈 준비</span>를 약속드립니다.
+		</span>
+      </div>
+  </section>
+  <section id="5">
+	<div class="mt80"></div>
+	<div style="width:100%;height:50px;text-align:center;">
+		<span class="fontSetLg" style="display:inline-block;">전화상담</span>
+   	</div>
+   	<div style="margin:auto;text-align:center;">
+	     <img src="./webapp/img/call.png" style="width:30px;height:30px;"/>&nbsp;
+		 <a href="tel:1588-7126" class="fontSetLg consulting" style="display:inline-block;">1588-7126</a><br>
+	     <div class="mt30"></div>
+		 <span class="fontSet20">전화번호 클릭 시 전화 연결이 가능합니다.</span><br>
+	</div>
+	<div class="mt50"></div>
+	<div style="width:90%;margin:auto;">
+		<hr>
+	</div>
+    	<div class="mt50"></div>
+	<div style="width:100%;height:50px;text-align:center;">
+		<span class="fontSetLg" style="display:inline-block;">문자상담</span>
+   	</div>
+   	<div class="mt30"></div>
+	<div style="margin:auto;text-align:center;">
+		<textarea class="content" rows="20" placeholder="상담문의할 내용을 입력해 주세요."></textarea>
+	</div>
+	<div class="mt10"></div>
+	<div class="sms" style="text-align:center;margin-top:5px;z-index:0;">
+		<a class="fontSet20"><span>전송</span></a>
+	</div>
+    </div>
+  </section>
+
+ 
+</div>
+
+<footer>
+<div class="container top-footer" style="display:flex;">
+		<div style="width:100%;height:50px;padding:20px;">
+		<span class="fontSetW20">아래 번호 클릭 시 전화 연결이 가능합니다.</span><br>
+		<span class="fontSetWLg">[ 상담문의 ]</span>&nbsp;
+		<a href="tel:1588-7126" class="fontSetWLg consulting" style="display:inline-block;">1588-7126</a>&nbsp;
+		<span class="fontSetWTitle" style="display:inline-block;">(연중무휴)</span>
+      </div>
+      <div>
+      	<img src="./webapp/img/mapImg.png" style="width:170px;height:150px;padding:20px;"/>
+      </div>
+    </div>
+    <div class="container end-footer1" style="background-color:#787878;height:150px;text-align:center;">
+      	<span class="fontGodo14" style="color:#fff;display:inline-block;padding-top:20px;">KIND CAFE</span><br>
+      	<span class="fontGodo14" style="color:#fff;display:inline-block;">사업자등록번호 : 126-35-01322</span><br>
+      	<span class="fontGodo14" style="color:#fff;display:inline-block;">대표자 : 조 영 진</span><br>
+      	<span class="fontGodo14" style="color:#fff;display:inline-block;">TEL. 1588-7126</span><br>
+      	<span class="fontGodo14" style="color:#fff;display:inline-block;">서울특별시 서울 양천구 목동중앙남로 28 1층 카인드카페</span>
+    </div>
+    <div class="container end-footer">
+      <span class="designer">
+      	전화 아이콘  제작자: IYAHICON - Flaticon Luna J
+      </span>
+    </div>
+
+</footer>
+
+</body>
+
+<!-- <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->
+
+	<link href="./webapp/css/index.css" rel="stylesheet" type="text/css">
+	<link href="./webapp/css/cssSet.css" rel="stylesheet" type="text/css">
+</html>
