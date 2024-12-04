@@ -29,7 +29,7 @@ $(document).ready(function(){
 		}
 	);
 
-	$('#generate-pdf').on('click', function() {
+	$('.prtBtn').on('click', function() {
                 // jsPDF 객체 생성
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF();
