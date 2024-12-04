@@ -24,7 +24,7 @@ $(document).ready(function(){
 			return false;
 		}
 		$.each(chk, function(){
-			$(this).closest("tr).remove();
+			$(this).closest("tr").remove();
 		});
 		}
 	);
