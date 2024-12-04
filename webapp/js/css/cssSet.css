@@ -1,0 +1,217 @@
+.mt500 { margin-top : 500px; }
+.mt400 { margin-top : 400px; }
+.mt200 { margin-top : 200px; }
+.mt150 { margin-top : 150px; }
+.mt100 { margin-top : 100px; }
+.mt80 { margin-top : 80px; }
+.mt60 { margin-top : 60px; }
+.mt50 { margin-top : 50px; }
+.mt40 { margin-top : 40px; }
+.mt30 { margin-top : 30px; }
+.mt20 { margin-top : 20px; }
+.mt10 { margin-top : 10px; }
+
+
+.lineSet { background: linear-gradient(to top, #FFE400 50%, transparent 50%); }
+.lineGraySet { background: linear-gradient(to top, #ccc 50%, transparent 50%); }
+.lineBlueSet { background: linear-gradient(to top, #00D8FF 50%, transparent 50%); }
+.lineRedSet { background: linear-gradient(to top, #FC5230 50%, transparent 50%); }
+
+@font-face {
+    font-family: 'Godo';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/nhn/GodoMedium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/nhn/GodoMedium.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/nhn/GodoMedium.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/nhn/GodoMedium.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/nhn/GodoMedium.ttf') format("truetype");
+    font-display: swap;
+} 
+
+@font-face {
+	font-family: 'yg-jalnan';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ohsquareair';
+    font-weight: normal; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/cafe24/Cafe24Ohsquareair.woff2) format('woff2');
+    font-display: swap;
+}
+
+.why1, .why3 {
+	color : #FC5230;
+	-webkit-text-stroke: 1.5px black;
+	font-size : 60px;
+}
+
+.number {
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 40px;
+	color : #51B098;
+	-webkit-text-stroke: 1.5px black;
+}
+
+.num24 {
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 30px;
+	color : #51B098;
+	-webkit-text-stroke: 1.5px black;
+}
+
+.maxTitle {
+	color: black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 60px;
+}
+
+.logo {
+	color: black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 40px;
+}
+
+.fontSetLg {
+	color: black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 30px;
+}
+
+.fontSetWLg {
+	color: #fff;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 30px;
+}
+
+.fontSetCol {
+	color : #FC5230;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 35px;
+}
+
+.fontSetCol2 {
+	color : black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 35px;
+}
+
+.fontSetTitle2 {
+	color: black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 30px;
+}
+
+.fontSetTitle {
+	color: black;
+    font-family: 'TwaySky';
+    font-size: 20px;
+}
+
+.fontSetWTitle {
+	color: #fff;
+    font-family: 'TwaySky';
+    font-size: 20px;
+}
+
+.fontB {
+	color: black;
+    font-family: 'TwaySky';
+    font-size: 20px;
+}
+
+.fontSetG20 {
+	color: #585858;
+    font-family: 'TwaySky';
+    font-size: 20px;
+}
+
+.fontSet20 {
+	color: black;
+    font-family: 'TwaySky';
+    font-size: 20px;
+}
+
+.fontSetW20 {
+	color: #fff;
+    font-family: 'TwaySky';
+    font-size: 20px;
+}
+
+.fontSet18 {
+	color: black;
+    font-family: 'TwaySky';
+    font-size: 18px;
+}
+
+.fontSet25 {
+	color: black;
+    font-family: 'TwaySky';
+    font-size: 25px;
+}
+
+.fontSet {
+	color: black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 15px;
+}
+
+.fontJnSet {
+	color: black;
+    font-family: 'yg-jalnan', verdana, tahoma;
+    font-size: 15px;
+}
+
+.fontGodoSet {
+	color: black;
+    font-family: 'Godo';
+    font-size: 15px;
+}
+
+.fontGodo13 {
+	color: black;
+    font-family: 'Godo';
+    font-size: 14px;
+}
+
+.fontGodoLgSet {
+	color: black;
+    font-family: 'Godo';
+    font-size: 20px;
+}
+
+.fontGodoGraySet {
+	color: darkgray;
+    font-family: 'Godo';
+    font-size: 20px;
+}
+
+.fontGodoLgSet {
+	color: black;
+    font-family: 'Godo';
+    font-size: 25px;
+}
+
+.fontCafe24Set {
+	color: black;
+    font-family: 'Cafe24Ohsquareair';
+    font-size: 25px;
+}
+
+
+/* mobile */
+@media screen and (max-width: 800px) {
+    .maxTitle {
+        font-size: 30px; /* 모바일에서 폰트 크기 조절 */
+    }
+    td.detail {
+        font-size: 12px; /* 모바일에서 폰트 크기 조절 */
+    }
+    nav ul li a{
+    	font-size: 16px;
+    }
+}
