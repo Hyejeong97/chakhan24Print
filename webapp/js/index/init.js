@@ -52,18 +52,26 @@ $(document).ready(function(){
 		});
 		
                // const listItems = $('#list li').toArray().map(item => $(item).text());
+    // 배경 이미지 URL (여기서는 예시로 사용, 실제 경로에 맞게 수정)
+    const imgUrl = './webapp/img/form.jpg';
 
-                // PDF에 리스트 항목 추가
-                listItems.forEach((item, index) => {
-                    index++;
-                    doc.text(item.name, 10, 10 + index * 10);  // y 위치는 10씩 증가
-		    doc.text(item.amt, 10, 10 + index * 20);
-		    doc.text(item.yn, 10, 10 + index * 30);
-                });
+    // PDF에 리스트 항목 추가
+    listItems.forEach((item, index) => {
+        const yPosition = 10 + index * 40; // 각 항목의 y 위치 (40씩 증가)
 
-                // PDF 파일 다운로드
-                doc.save('가격표.pdf');
-            });
+        // 배경 이미지 추가 (이미지 크기 및 위치 조정)
+        doc.addImage(imgUrl, 'PNG', 5, yPosition - 5, 200, 30);  // (x, y, 너비, 높이)
+
+        // 텍스트 추가 (이미지 위에)
+        doc.text(item.name, 10, yPosition);
+        doc.text(item.amt, 100, yPosition);  // 예시로 x좌표 100에 추가
+        doc.text(item.yn, 150, yPosition);  // 예시로 x좌표 150에 추가
+    });
+
+    // PDF 파일 다운로드
+    doc.save('가격표.pdf');
+});
+                
 		
 
 	var sections = $('section')
