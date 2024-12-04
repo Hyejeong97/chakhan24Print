@@ -28,6 +28,39 @@ $(document).ready(function(){
 		});
 		}
 	);
+
+	$('#generate-pdf').on('click', function() {
+                // jsPDF 객체 생성
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+		var table = $("#table01");
+		var tbody = table.find("tbody");
+		var tr = tbody.find("tr");
+		
+                // 리스트 항목 가져오기
+		var listItems = new Array();
+		$.each(tr, function(item){
+			var obj = new Object();
+			var name = $(item).find(".productNm").val();
+			var amt = $(item).find(".productAmt").val();
+			var yn = $(item).find(".drinkYn").val();
+			obj.name = name;
+			obj.amt = amt;
+			obj.yn = yn;
+			listItems.push(obj);
+		});
+		
+               // const listItems = $('#list li').toArray().map(item => $(item).text());
+
+                // PDF에 리스트 항목 추가
+                listItems.forEach((item, index) => {
+                    doc.text(item, 10, 10 + index * 10);  // y 위치는 10씩 증가
+                });
+
+                // PDF 파일 다운로드
+                doc.save('가격표.pdf');
+            });
 		
 
 	var sections = $('section')
