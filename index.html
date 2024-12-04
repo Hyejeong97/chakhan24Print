@@ -28,7 +28,7 @@
 </nav>
 
 <div class="sections">
-<section id="1" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; background-size: cover; background-repeat: no-repeat; position: relative;">
+<section id="1" style="display: flex; flex-direction: column; margin-top:100px;align-items: center; height: 100%; width: 100%; background-size: cover; background-repeat: no-repeat; position: relative;">
 <div class="mt80"></div>
 	<div style="width:100%;height:50px;text-align:center;">
 		<span class="fontSetLg" style="display:inline-block;">금액 내역</span>
@@ -36,8 +36,8 @@
       
 	<div class="mt10" style="width:100%;">
 		<div style="width:70%;height:50px;text-align:right;margin:auto;">
-		<button class="addBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;">추가</button>
-	      <button class="delBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;">삭제</button>
+		<button class="addBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">추가</button>
+	      <button class="delBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">삭제</button>
 	      </div>
 		<table class="type07" id="table01" style="width:70%;margin:auto;">
 		  <colgroup>
@@ -52,7 +52,11 @@
 		    <th scope="cols">음료여부</th>
 		  </tr>
 		  </thead>
-		  <tbody></tbody>
+		  <tbody>
+			  <tr>
+				  <td colspan="3">자료가 없습니다.</td>
+			  </tr>
+		  </tbody>
 		  <tfoot style="display:none;">
 			  <tr>
 				  <td><input type="text" class="productNm" /></td>
