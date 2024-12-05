@@ -60,7 +60,7 @@ $(document).ready(function(){
         const yPosition = 10 + index * 40; // 각 항목의 y 위치 (40씩 증가)
 
         // 배경 이미지 추가 (이미지 크기 및 위치 조정)
-        doc.addImage(imgUrl, 'PNG', 5, yPosition - 5, 200, 30);  // (x, y, 너비, 높이)
+        doc.addImage(imgUrl, 'PNG', 5, yPosition - 5, 50, 30);  // (x, y, 너비, 높이)
 
         // 텍스트 추가 (이미지 위에)
         doc.text(item.name, 10, yPosition + 5);
