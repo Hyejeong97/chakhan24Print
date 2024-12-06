@@ -50,26 +50,10 @@ $(document).ready(function(){
 			obj.yn = yn;
 			listItems.push(obj);
 		});
-var pdf = new jsPDF();
-    var img = new Image();
-    img.src = './webapp/img/form.jpg';
+	var pdf = new jsPDF();
+    	var img = new Image();
+   	var imgSrc = './webapp/img/form.jpg';
 
-    function loadImage(src) {
-        return new Promise((resolve, reject) => {
-            var img = new Image();
-
-            img.onload = function () {
-                resolve(img);
-            };
-            img.onerror = function () {
-                reject(new Error('Error loading image: ' + src));
-            };
-            img.src = src;
-        });
-    }
-    });
-
-	loadImage(img.src).then(function (loadedImg) {
         var imgWidth = 60;
         var imgHeight = 38;
         var positionX = 15;
@@ -107,15 +91,15 @@ var pdf = new jsPDF();
             pdf.rect(positionX, positionY, imgWidth, imgHeight);
 
             // 이미지 추가
-            pdf.addImage(loadedImg, 'PNG', positionX, positionY, imgWidth, imgHeight);
+            pdf.addImage(imgSrc, 'PNG', positionX, positionY, imgWidth, imgHeight);
 
             // ITEM_NM에 대한 폰트 및 스타일 설정 (검정색)
             pdf.setTextColor(0, 0, 0); // 검정색
             pdf.setFontSize(20);
 
-            var itemTagNm1 = array[i].ITEM_TAG_NM1;
-            var itemTagNm2 = array[i].ITEM_TAG_NM2;
-            if(Array[i].ITEM_TAG_NM2 != ""){
+            var itemTagNm1 = listItems[i].name;
+            var itemTagNm2 = listItems[i].name;
+            if(listItems[i].amt != ""){
                 pdf.setFontSize(20); // ITEM_NM의 폰트 크기 설정
                 pdf.text(positionX + 6, positionY + 9, itemTagNm1); // ITEM_NM 출력
                 pdf.setFontSize(14); // ITEM_NM2의 폰트 크기 설정
@@ -131,11 +115,6 @@ var pdf = new jsPDF();
             pdf.setFontSize(24);
             pdf.text(positionX + 10, positionY + 24, array[i].ITEM_PRICE + "원");
 
-            // 바코드 이미지 추가
-            var barcodeDataUrl = createBarcode(array[i].BAR_CODE);
-            var barcodeImg = new Image();
-            barcodeImg.src = barcodeDataUrl;
-            pdf.addImage(barcodeImg, 'PNG', (positionX + imgWidth / 2) - 27, (positionY + imgHeight + 5) -18, imgWidth - 5, (imgHeight / 2) - 5);
 
             // 원래의 폰트 크기로 되돌리기 (다음 루프에 영향을 주지 않게 하기 위해)
             pdf.setFontSize(20);
@@ -145,7 +124,8 @@ var pdf = new jsPDF();
 
         pdf.save('priceBoard.pdf');
      
-});
+
+	});
                 
 		
 
