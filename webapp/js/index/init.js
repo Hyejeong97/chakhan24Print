@@ -100,7 +100,7 @@ $(document).ready(function(){
             var itemTagNm1 = listItems[i].name;
             var itemTagNm2 = listItems[i].name;
             if(listItems[i].amt != ""){
-                pdf.setFontSize(25); // ITEM_NM의 폰트 크기 설정
+                pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
                 pdf.text(positionX + 6, positionY + 9, itemTagNm1); // ITEM_NM 출력
             } else {
                 pdf.setFontSize(24); // 기본 폰트 크기로 설정
@@ -125,7 +125,7 @@ $(document).ready(function(){
 	var month = ('0' + (today.getMonth() + 1)).slice(-2);
 	var day = ('0' + today.getDate()).slice(-2);
 	
-	var dateString = year + '-' + month  + '-' + day;
+	var dateString = year + month  + day;
 
         pdf.save('착한가게24_가격표_' + dateString + '.pdf');
      
