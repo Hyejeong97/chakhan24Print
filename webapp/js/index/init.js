@@ -99,19 +99,23 @@ $(document).ready(function(){
 
             var itemTagNm1 = listItems[i].name;
             var itemTagNm2 = listItems[i].name;
-            if(listItems[i].amt != ""){
+             if(listItems[i].amt != ""){
                 pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
-                pdf.text(positionX + 6, positionY + 9, itemTagNm1); // ITEM_NM 출력
+                
+		// 텍스트의 너비 계산
+		var textWidth = pdf.getTextWidth(itemTagNm1);
+		// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+		var centeredX = positionX + (imgWidth - textWidth) / 2;
+		pdf.text(centeredX, positionY + 13, itemTagNm1);
             } else {
                 pdf.setFontSize(24); // 기본 폰트 크기로 설정
                 pdf.text(positionX + 4, positionY + 13, itemTagNm1); // ITEM_NM 출력
             }
-
-
+			
             // ITEM_PRICE에 대한 폰트 및 스타일 설정 (빨간색)
             pdf.setTextColor(255, 0, 0); // 빨간색
-            pdf.setFontSize(30);
-            pdf.text(positionX + 10, positionY + 24, listItems[i].amt);
+            pdf.setFontSize(50);
+            pdf.text(positionX + 5, positionY + 30, listItems[i].amt);
 
 
             // 원래의 폰트 크기로 되돌리기 (다음 루프에 영향을 주지 않게 하기 위해)
