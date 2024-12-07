@@ -100,10 +100,8 @@ $(document).ready(function(){
             var itemTagNm1 = listItems[i].name;
             var itemTagNm2 = listItems[i].name;
             if(listItems[i].amt != ""){
-                pdf.setFontSize(20); // ITEM_NM의 폰트 크기 설정
+                pdf.setFontSize(25); // ITEM_NM의 폰트 크기 설정
                 pdf.text(positionX + 6, positionY + 9, itemTagNm1); // ITEM_NM 출력
-                pdf.setFontSize(14); // ITEM_NM2의 폰트 크기 설정
-                pdf.text(positionX + 6, positionY + 15, itemTagNm2); // ITEM_NM2 출력
             } else {
                 pdf.setFontSize(24); // 기본 폰트 크기로 설정
                 pdf.text(positionX + 4, positionY + 13, itemTagNm1); // ITEM_NM 출력
@@ -112,8 +110,8 @@ $(document).ready(function(){
 
             // ITEM_PRICE에 대한 폰트 및 스타일 설정 (빨간색)
             pdf.setTextColor(255, 0, 0); // 빨간색
-            pdf.setFontSize(24);
-            pdf.text(positionX + 10, positionY + 24, array[i].ITEM_PRICE + "원");
+            pdf.setFontSize(30);
+            pdf.text(positionX + 10, positionY + 24, listItems[i].amt);
 
 
             // 원래의 폰트 크기로 되돌리기 (다음 루프에 영향을 주지 않게 하기 위해)
@@ -121,8 +119,15 @@ $(document).ready(function(){
 
             positionX += imgWidth + space;
         }
+	var today = new Date();
 
-        pdf.save('priceBoard.pdf');
+	var year = today.getFullYear();
+	var month = ('0' + (today.getMonth() + 1)).slice(-2);
+	var day = ('0' + today.getDate()).slice(-2);
+	
+	var dateString = year + '-' + month  + '-' + day;
+
+        pdf.save('착한가게24_가격표_' + dateString + '.pdf');
      
 
 	});
