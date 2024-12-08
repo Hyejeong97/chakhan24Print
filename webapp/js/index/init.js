@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$("input[type=text]").css("font-size", "20px");
 	$("input[type=checkbox]").css("cursor", "pointer");
+	$(".type07 thead th").css("font-size", "24px");
 
 	//추가 클릭시
 	$(".addBtn").on('click', function(){
