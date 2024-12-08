@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$("input[type=text]").css({
 		"font-size" : "20px",
 		"font-weight" : "bold"
-	);
+	});
 	$("input[type=checkbox]").css("cursor", "pointer");
 	$(".type07 thead th").css("font-size", "24px");
 	$("[class*=Btn]").css("font-size", "20px");
