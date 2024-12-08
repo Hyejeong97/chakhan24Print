@@ -139,9 +139,10 @@ $(document).ready(function(){
 	    if(listItems[i].amt.length > 4){
 		pdf.setFontSize(45); // ITEM_NM의 폰트 크기 설정
 	    }else{
+		    space = space != 1 ? 1 : space;
 		if(!listItems[i].yn){
 			positionX += 3;
-			space = space != 1 ? 1 : space;
+			
 		}else{
 			positionX -= 2;
 			space += 2;
