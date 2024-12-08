@@ -100,7 +100,11 @@ $(document).ready(function(){
             var itemTagNm1 = listItems[i].name;
             var itemTagNm2 = listItems[i].name;
              if(listItems[i].amt != ""){
-                pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
+                if(itemTagNm1.length > 5){
+			pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
+		}else{
+			pdf.setFontSize(30); // ITEM_NM의 폰트 크기 설정
+		}
                 
 		// 텍스트의 너비 계산
 		var textWidth = pdf.getTextWidth(itemTagNm1);
@@ -114,7 +118,13 @@ $(document).ready(function(){
 			
             // ITEM_PRICE에 대한 폰트 및 스타일 설정 (빨간색)
             pdf.setTextColor(255, 0, 0); // 빨간색
-            pdf.setFontSize(50);
+            //pdf.setFontSize(50);
+	    if(listItems[i].amt.length > 4){
+		pdf.setFontSize(45); // ITEM_NM의 폰트 크기 설정
+	    }else{
+		positionX += 3;
+		pdf.setFontSize(50); // ITEM_NM의 폰트 크기 설정
+	    }
             pdf.text(positionX + 5, positionY + 30, listItems[i].amt);
 
 
