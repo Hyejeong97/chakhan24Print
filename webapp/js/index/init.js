@@ -44,7 +44,7 @@ $(document).ready(function(){
 			var obj = new Object();
 			var name = $(item).find(".productNm").val();
 			var amt = $(item).find(".productAmt").val();
-			var yn = $(item).find(".drinkYn").val();
+			var yn = $(item).find(".drinkYn").prop("checked");
 			obj.name = name;
 			obj.amt = amt;
 			obj.yn = yn;
