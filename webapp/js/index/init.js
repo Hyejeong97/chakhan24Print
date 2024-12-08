@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	$("input[type=text]").css("font-size", "20px");
+	$("input[type=checkbox]").css("cursor", "pointer");
 
 	//추가 클릭시
 	$(".addBtn").on('click', function(){
