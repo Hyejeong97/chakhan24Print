@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$("input[type=text]").css("font-size", "20px");
+
 	//추가 클릭시
 	$(".addBtn").on('click', function(){
 		var table = $("#table01");
