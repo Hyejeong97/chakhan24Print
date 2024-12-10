@@ -354,6 +354,7 @@ function setMap(x, y){
 function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	var $div = $("#" + id);
 	var $contents = $div.find(".contents");
+	$contents.css("overflow", "auto");
 	
 	// 확인, 닫기 제외 추가 버튼이 필요할 때(리스트 {버튼명 : 클릭시 발생할 함수})
 	if(fnAddBtn != null){
