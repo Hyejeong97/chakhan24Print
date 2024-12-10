@@ -212,6 +212,18 @@ a.control_next {
    height: 5px;
 }
 
+/* 스크롤바 스타일링 */
+.contents::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비를 지정합니다. */
+  height: 10px;
+}
+
+.contents::-webkit-scrollbar-thumb {
+  background-color: #888; /* 스크롤바의 색상을 지정합니다. */
+  border-radius: 10px; /* 스크롤바를 둥글게 만듭니다. */
+   height: 5px;
+}
+
 table.type07 {
   background-color:#fff;
   border-collapse: collapse;
