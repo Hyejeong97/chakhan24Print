@@ -12,6 +12,11 @@ $(document).ready(function(){
 		"padding-right" : "3px"
 	});
 
+	//도움말 클릭시
+	$(".problem").on("click", function(){
+		openModal("qDialog", "도움말", "500", "600", null, null, null);
+	});
+
 	//추가 클릭시
 	$(".addBtn").on('click', function(){
 		var table = $("#table01");
@@ -340,4 +345,124 @@ function setMap(x, y){
 	
 	// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 	// marker.setMap(null);   
+}
+
+
+/**
+	 * 모달창
+	 */
+function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
+	var $div = $("#" + id);
+	var $contents = $div.find(".contents");
+	
+	// 확인, 닫기 제외 추가 버튼이 필요할 때(리스트 {버튼명 : 클릭시 발생할 함수})
+	if(fnAddBtn != null){
+		var list = fnAddBtn;
+		$.each(list, function(key, value){
+			// 이전에 등록된 클릭 이벤트 핸들러 제거
+			$div.find("#" + key + ", ." + key + "").off("click");
+			$div.find("#" + key + ", ." + key + "").on("click", function(e){
+				if(eval(value) == false){
+					// false인 경우 아무 작업도 하지 않음
+				}else{
+					$("#" + id).hide();
+					$overlay.remove();
+				}
+			});
+		});
+	}
+	var btn = "";
+	/** 확인 **/
+	btn += "<div style='text-align:center;' class='btn'>";
+	if(fnConfirm != null){
+		btn += '<a id="confirm" class="defaultBtn mT10" style="margin-right:3px;background-color:#2A93F7;color:#fff" href="javascript:;" onclick=""><span>확인</span></a>';
+	}
+	/** 취소 **/
+	if(fnCancel != null){
+		btn += '<a id="cancel" class="defaultBtn mT10" href="javascript:;"><span>취소</span></a>';
+	}
+	btn += "</div>";
+	if($contents.find(".btn").length == 0){
+		$contents.append(btn);
+	}
+	// 이전에 등록된 클릭 이벤트 핸들러 제거
+	$div.find("#confirm").off("click");
+	$div.find("#confirm").on("click", function(e){
+		if(eval(fnConfirm) == false){
+			// false인 경우 아무 작업도 하지 않음
+		}else{
+			$("#" + id).hide();
+			$overlay.remove();
+		}
+	});
+	if($contents.find("div.title").length == 0){
+		var titleDiv = "";
+		if(title != "" && title != null){
+			titleDiv += "<div style='border-bottom:1.5px solid black' class='title mB15'>";
+			titleDiv += "<div style='float:left;'><h1 class='mB10' style='font-size:16px;font-weight:bold;'>" + title + "</h1></div>";
+			titleDiv += "<div style='float:right;'><a href='javascript:;' class='closeBtn' style='cursor:pointer;'>✖️</a></div><br><br>";
+			titleDiv += "</div>";
+			$contents.prepend(titleDiv);
+		}
+	}
+	
+    // 배경을 덮는 요소 추가
+    var $overlay = $('<div class="overlay"></div>');
+    $('body').append($overlay);
+	
+	/** 여러 모달창을 띄우는 경우 **/
+	var contents = $(".contents").not($contents);
+	if($(".overlay").length > 1){
+		$.each(contents, function(i, item){
+			$(item).closest(".dpNone").css("z-index", "9998");
+		});
+	}
+
+    $overlay.css({
+	'position': 'fixed',
+	'top': '0',
+	'left': '0',
+	'width': '100%',
+	'height': '100%',
+	'background-color': 'rgba(0, 0, 0, 0.5)',
+	'z-index': '9997'  // 모달 창보다 낮은 z-index
+    });
+	
+    $div.css({
+	'display': 'none',
+	'position': 'fixed',
+	'top': '50%',
+	'left': '50%',
+	'transform': 'translate(-50%, -50%)',
+	'width': width + 'px',
+	'height': height + 'px',
+	'background-color': 'rgba(0,0,0,0.5)',
+	'justify-content': 'center',
+	'align-items': 'center',
+		'z-index': '9999'  // 모달 창보다 높은 z-index
+    });
+
+    $contents.css({
+	'background-color': '#fff',
+	'width': '100%',
+	'height': '100%',
+	'padding': '20px',
+	'border-radius': '5px',
+	'box-shadow': '0 0 10px rgba(0, 0, 0, 0.5)'
+    });	
+	
+	$div.show();
+	
+	$div.find("#confirm").on("click", function(e){
+	    if(fnConfirm === true) {
+		$("#" + id).hide();
+		$overlay.remove();
+	    }
+	});
+	
+	$div.find("#cancel, .closeBtn").on("click", function(e){
+		$("#" + id).hide();
+		$overlay.remove();
+	});
+	
 }
