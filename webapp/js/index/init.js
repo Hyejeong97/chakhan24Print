@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 	//도움말 클릭시
 	$(".problem").on("click", function(){
-		openModal("qDialog", "도움말", "500", "600", null, null, null);
+		openModal("qDialog", "도움말", "700", "600", null, null, null);
 	});
 
 	//추가 클릭시
@@ -399,8 +399,8 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 		var titleDiv = "";
 		if(title != "" && title != null){
 			titleDiv += "<div style='border-bottom:1.5px solid black' class='title mB15'>";
-			titleDiv += "<div style='float:left;'><h1 class='mB10' style='font-size:16px;font-weight:bold;'>" + title + "</h1></div>";
-			titleDiv += "<div style='float:right;'><a href='javascript:;' class='closeBtn' style='cursor:pointer;'>✖️</a></div><br><br>";
+			titleDiv += "<div style='float:left;'><h1 class='' style='font-size:18px;font-weight:bold;margin-top:10px;color:black;'>" + title + "</h1></div>";
+			titleDiv += "<div style='float:right;'><a href='javascript:;' class='closeBtn' style='cursor:pointer;text-decoration:none;'>✖️</a></div><br><br>";
 			titleDiv += "</div>";
 			$contents.prepend(titleDiv);
 		}
