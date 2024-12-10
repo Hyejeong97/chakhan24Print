@@ -398,7 +398,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	if($contents.find("div.title").length == 0){
 		var titleDiv = "";
 		if(title != "" && title != null){
-			titleDiv += "<div style='border-bottom:1.5px solid black' class='title mB15'>";
+			titleDiv += "<div style='border-bottom:1.5px solid black;margin-bottom:15px;' class='title'>";
 			titleDiv += "<div style='float:left;'><h1 class='' style='font-size:18px;font-weight:bold;margin-top:10px;color:black;'>" + title + "</h1></div>";
 			titleDiv += "<div style='float:right;'><a href='javascript:;' class='closeBtn' style='cursor:pointer;text-decoration:none;'>✖️</a></div><br><br>";
 			titleDiv += "</div>";
