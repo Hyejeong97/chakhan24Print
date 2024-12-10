@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 	//도움말 클릭시
 	$(".problem").on("click", function(){
-		openModal("qDialog", "도움말", "700", "600", null, null, null);
+		openModal("qDialog", "도움말", "800", "600", null, null, null);
 	});
 
 	//추가 클릭시
