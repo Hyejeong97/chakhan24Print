@@ -73,7 +73,7 @@ h1 {
 /* 로딩바 컨테이너 스타일 */
 #loading-container {
   width: 200px; /* 로딩바의 길이 설정 */
-  height: 10px;
+  height: 30px;
   background-color: #f3f3f3;
   position: fixed;
   top: 50%;
