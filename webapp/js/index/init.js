@@ -52,6 +52,7 @@ $(document).ready(function(){
 		$('#prtOverlay').show();
 		$('#loading-container').show();
 		$('#loading-bar').width(0);
+		$('#loading-percent').text('0%'); // 퍼센트 초기화
 		
                 // jsPDF 객체 생성
                 const { jsPDF } = window.jspdf;
@@ -167,6 +168,11 @@ $(document).ready(function(){
 	            pdf.setFontSize(20);
 	
 	            positionX += imgWidth + space;
+
+		    // 로딩바 진행 업데이트
+		    var progress = Math.floor(((i + 1) / listItems.length) * 100); // 진행률 계산
+		    $('#loading-bar').width(progress + '%'); // 로딩바 업데이트
+		    $('#loading-percent').text(progress + '%'); // 퍼센트 업데이트
 	        }
 		var today = new Date();
 	
@@ -178,6 +184,7 @@ $(document).ready(function(){
 
 		// PDF 저장 전에 로딩바 업데이트
     		$('#loading-bar').width('100%'); // 로딩 완료 상태로 설정
+		$('#loading-percent').text('100%'); // 퍼센트 완료
 	
 	        pdf.save('착한가게24_가격표_' + dateString + '.pdf');
 
