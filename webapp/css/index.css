@@ -87,7 +87,8 @@ h1 {
 #loading-bar {
   width: 0;
   height: 100%;
-  background-color: #4caf50;
+  background-color: #1e90ff;
+  /*background-color: #4caf50;*/
   border-radius: 5px; /* 로딩바도 둥글게 처리 */
 }
 
@@ -101,6 +102,24 @@ h1 {
   color: white;
   z-index: 10000; /* 오버레이와 로딩바 위에 표시 */
   font-weight: bold;
+}
+
+/* 로딩 애니메이션 (예: 깜빡이는 효과) */
+@keyframes loadingAnimation {
+    0% {
+        background-color: #1e90ff; /* 초기 파란색 */
+    }
+    50% {
+        background-color: #63a9ff; /* 약간 더 밝은 파란색 */
+    }
+    100% {
+        background-color: #1e90ff; /* 다시 원래의 파란색 */
+    }
+}
+
+/* 로딩바가 진행 중일 때 애니메이션 추가 */
+#loading-bar {
+    animation: loadingAnimation 1s infinite; /* 깜빡이는 효과 */
 }
 
 
