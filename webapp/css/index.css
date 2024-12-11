@@ -57,6 +57,26 @@ h1 {
   color: #34495E;
 }
 
+/* 로딩바 */
+#loading-container {
+  width: 80%;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  background-color: #f3f3f3;
+  display: none; /* 처음에는 로딩바를 숨김 */
+}
+
+#loading-bar {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  text-align: center;
+  color: white;
+  line-height: 30px;
+}
+
+
 /* Sections */
 
 section:not(:first-child){
