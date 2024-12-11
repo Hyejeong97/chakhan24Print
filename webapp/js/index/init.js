@@ -12,6 +12,17 @@ $(document).ready(function(){
 		"padding-right" : "3px"
 	});
 
+	// tbody 안에 있는 tr 요소들을 sortable로 설정
+	$("#table01 tbody").sortable({
+	        items: "tr", // 테이블 행(tr)만 드래그 가능하도록 설정
+	        cursor: "move", // 마우스를 드래그할 때 커서를 "이동"으로 설정
+	        axis: "y", // Y축 방향으로만 드래그 가능하도록 설정
+	        update: function(event, ui) {
+	            // 순서가 바뀌면 처리할 작업 (필요한 경우에만 사용)
+	            console.log("순서 변경됨!");
+	        }
+	}).disableSelection(); // 텍스트 선택 방지
+
 	//도움말 클릭시
 	$(".problem").on("click", function(){
 		openModal("qDialog", "도움말", "800", "600", null, null, null);
