@@ -193,6 +193,7 @@ $(document).ready(function(){
 		setTimeout(function() {
 			$('#prtOverlay').hide();
 			$('#loading-container').hide();
+			$('#loading-percent').hide();
 		}, 500);
      
 
