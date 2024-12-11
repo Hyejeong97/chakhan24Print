@@ -51,6 +51,7 @@ $(document).ready(function(){
 		// 로딩바 시작
 		$('#prtOverlay').show();
 		$('#loading-container').show();
+		$('#loading-percent').show();
 		$('#loading-bar').width(0);
 		$('#loading-percent').text('0%'); // 퍼센트 초기화
 		
