@@ -48,8 +48,13 @@ $(document).ready(function(){
 					"border-width" : "5px",
 					"border-style" : "solid"
 				});
+				lastFoundItem = $(item).find(".productNm"); // 마지막으로 찾은 항목 저장
 			}
 		});
+		// 마지막으로 찾은 항목에 포커스
+		if (lastFoundItem) {
+			lastFoundItem[0].focus();
+		}
 		
 	});
 
