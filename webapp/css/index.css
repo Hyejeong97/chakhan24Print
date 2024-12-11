@@ -122,6 +122,27 @@ h1 {
     animation: loadingAnimation 1s infinite; /* 깜빡이는 효과 */
 }
 
+/* 깜빡이는 경계선 애니메이션 */
+@keyframes blink-border {
+    0% {
+        border-color: #FFEB3B;  /* 밝은 노란색 */
+        border-width: 5px;
+    }
+    50% {
+        border-color: transparent;  /* 투명 */
+        border-width: 5px;
+    }
+    100% {
+        border-color: #FFEB3B;  /* 밝은 노란색 */
+        border-width: 5px;
+    }
+}
+
+/* 깜빡이는 경계선 적용 */
+.blinking-border {
+    animation: blink-border 1s ease-in-out 1; /* 1초 동안 한 번만 깜빡임 */
+}
+
 
 /* Sections */
 
