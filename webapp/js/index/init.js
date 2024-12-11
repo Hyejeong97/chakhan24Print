@@ -129,9 +129,10 @@ $(document).ready(function(){
 		        var pageWidth = 210;
 		        var pageHeight = 297;
 		        var margin = 5;
-		        var space = 1;
+		        var space = -2;
 		        var imagesPerPage = 18; // 한 페이지에 들어갈 이미지 개수
 		        var imagesCount = 0; // 페이지에 추가된 이미지 개수
+			var stdWidth = 0;
 	
 		        for (var i = 0; i < listItems.length; i++) {
 				if(listItems[i].yn){
@@ -141,6 +142,9 @@ $(document).ready(function(){
 					imgWidth = 60;
 					imgHeight = 38;
 				}
+				if(i == 0 || i % 3 == 0){
+						stdWidth = imgHeight + 1;
+					}
 		            	if (imagesCount >= imagesPerPage) {
 			                pdf.addPage();
 			                imagesCount = 0;
@@ -214,7 +218,7 @@ $(document).ready(function(){
 						}
 						
 				    }else{
-					    space = space != 1 ? 1 : space;
+					    space = space != -2 ? -2 : space;
 						if(!listItems[i].yn){
 							positionX += 3;
 							pdf.setFontSize(48); // ITEM_NM의 폰트 크기 설정
