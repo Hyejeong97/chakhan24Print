@@ -24,23 +24,28 @@ $(document).ready(function(){
 		var tbody = table.find("tbody");
 		var tr = tbody.find("tr");
 
+		if(text == ""){
+			alert("검색어를 입력해 주세요.");
+			return false;
+		}
+		
 		// 모든 항목에서 깜빡이는 효과 제거
     		tr.find(".productNm").removeClass("blinking-border");
+		tr.find(".productNm").css({
+			"borderColor" : "black",
+			"border-width" : "2px",
+			"border-style" : "solid"
+		});
 
+		
 		$.each(tr, function(i, item){
 			var name = $(item).find(".productNm").val();
-			if(text == name){
+			if(name.indexOf(text) > -1){
 				// 검색된 항목에 깜빡이는 경계선 효과 적용
             			$(item).find(".productNm").addClass("blinking-border");
 				$(item).find(".productNm").css({
 					"borderColor" : "#FFEB3B",
 					"border-width" : "5px",
-					"border-style" : "solid"
-				});
-			}else{
-				$(item).find(".productNm").css({
-					"borderColor" : "black",
-					"border-width" : "1px",
 					"border-style" : "solid"
 				});
 			}
