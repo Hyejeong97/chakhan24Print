@@ -20,6 +20,32 @@ $(document).ready(function(){
 	//검색 클릭시
 	$(".schBtn").on('click', function(){
 		var text = $(this).closest("div").find("input").val();
+		var table = $("#table01");
+		var tbody = table.find("tbody");
+		var tr = tbody.find("tr");
+
+		// 모든 항목에서 깜빡이는 효과 제거
+    		tr.find(".productNm").removeClass("blinking-border");
+
+		$.each(tr, function(i, item){
+			var name = $(item).find(".productNm").val();
+			if(text == name){
+				// 검색된 항목에 깜빡이는 경계선 효과 적용
+            			$(item).find(".productNm").addClass("blinking-border");
+				$(item).find(".productNm").css({
+					"borderColor" : "#FFEB3B",
+					"border-width" : "5px",
+					"border-style" : "solid"
+				});
+			}else{
+				$(item).find(".productNm").css({
+					"borderColor" : "black",
+					"border-width" : "1px",
+					"border-style" : "solid"
+				});
+			}
+		});
+		
 	});
 
 	//추가 클릭시
