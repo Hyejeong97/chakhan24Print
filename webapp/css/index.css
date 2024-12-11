@@ -57,6 +57,18 @@ h1 {
   color: #34495E;
 }
 
+/* 드래그 중인 테이블 행의 스타일 */
+#table01 tbody tr.ui-sortable-helper {
+    background-color: #f2f2f2;
+    border: 2px solid #ccc;
+}
+
+/* 마우스 커서가 드래그 상태일 때 */
+#table01 tbody tr {
+    cursor: move;
+}
+
+
 /* 로딩바 */
 /* 오버레이 스타일 */
 #prtOverlay {
