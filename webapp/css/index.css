@@ -91,6 +91,18 @@ h1 {
   border-radius: 5px; /* 로딩바도 둥글게 처리 */
 }
 
+/* 퍼센트 텍스트 스타일 */
+#loading-percent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 정확한 중앙 배치 */
+  font-size: 20px;
+  color: white;
+  z-index: 10000; /* 오버레이와 로딩바 위에 표시 */
+  font-weight: bold;
+}
+
 
 /* Sections */
 
