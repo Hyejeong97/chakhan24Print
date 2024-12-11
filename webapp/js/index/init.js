@@ -17,6 +17,11 @@ $(document).ready(function(){
 		openModal("qDialog", "도움말", "800", "600", null, null, null);
 	});
 
+	//검색 클릭시
+	$(".schBtn").on('click', function(){
+		var text = $(this).closest("div").find("input").val();
+	});
+
 	//추가 클릭시
 	$(".addBtn").on('click', function(){
 		var table = $("#table01");
