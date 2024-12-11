@@ -49,6 +49,7 @@ $(document).ready(function(){
 	// 프린트 버튼 클릭 시
 	$('.prtBtn').on('click', function() {
 		// 로딩바 시작
+		$('#prtOverlay').show();
 		$('#loading-container').show();
 		$('#loading-bar').width(0);
 		
@@ -182,6 +183,7 @@ $(document).ready(function(){
 
 		// 다운로드 완료 후 로딩바 숨김
 		setTimeout(function() {
+			$('#prtOverlay').hide();
 			$('#loading-container').hide();
 		}, 500);
      
