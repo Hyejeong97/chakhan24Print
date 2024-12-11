@@ -42,13 +42,18 @@
 		<span class="fontSetLg" style="display:inline-block;">금액 내역</span>
       </div>
       
-	<div class="mt10" style="width:70%;">
-		<div style="width:100%;height:50px;text-align:right;margin:auto;">
+     <div class="mt10" style="width:70%;">
+	<div style="width:70%;height:50px;text-align:right;margin:auto;">
+		<input type="text" class="srch" style="width:80%;height:40px;border-radius:5px;" />
+		<button class="schBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">검색</button>
+	</div>
+	<div style="width:30%;height:50px;text-align:right;margin:auto;">
 		<button class="addBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">추가</button>
-	      <button class="delBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">삭제</button>
-			<button class="prtBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">프린트</button>
-	      </div>
-		<div class="src01" style="height:500px;overflow:auto;">
+	      	<button class="delBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">삭제</button>
+		<button class="prtBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">프린트</button>
+	</div>
+      </div>
+      <div class="src01" style="width:70%;height:500px;overflow:auto;">
 		<table class="type07" id="table01" style="width:100%;margin:auto;">
 		  <colgroup>
 			  <col width="50px">
@@ -78,10 +83,10 @@
 			  </tr>
 		  </tfoot>
 		</table>
-		</div>
-      </div>
+	</div>
 
-		<div class="mt20"></div>
+	
+      <div class="mt20"></div>
       <div style="width:70%;height:50px;text-align:left;">
 		<span class="fontJnSet" style="display:inline-block;">
 			* 상품명은 <span class="lineSet">일곱 글자까지</span> 입력 가능합니다.
