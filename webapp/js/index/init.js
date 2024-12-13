@@ -521,7 +521,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	/** 확인 **/
 	btn += "<div style='text-align:center;' class='btn'>";
 	if(fnConfirm != null){
-		btn += '<a id="confirm" class="defaultBtn mT10" style="margin-right:3px;background-color:#2A93F7;color:#fff" href="javascript:;" onclick=""><span>확인</span></a>';
+		btn += '<a id="confirm" class="" style="padding:5px;border-radius:8px;text-decoration:none;margin-top:10px;margin-right:3px;background-color:#2A93F7;color:#fff" href="javascript:;" onclick=""><span>확인</span></a>';
 	}
 	/** 취소 **/
 	if(fnCancel != null){
