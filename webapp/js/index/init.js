@@ -18,8 +18,6 @@ $(document).ready(function(){
 	        cursor: "move", // 마우스를 드래그할 때 커서를 "이동"으로 설정
 	        axis: "y", // Y축 방향으로만 드래그 가능하도록 설정
 	        update: function(event, ui) {
-	            // 순서가 바뀌면 처리할 작업 (필요한 경우에만 사용)
-	            console.log("순서 변경됨!");
 	        }
 	}).disableSelection(); // 텍스트 선택 방지
 
@@ -84,17 +82,21 @@ $(document).ready(function(){
 
 	//삭제 클릭시
 	$(".delBtn").on('click', function(){
-		var table = $("#table01");
-		var tbody = table.find("tbody");
-		var tfoot = table.find("tfoot");
-		var chk = $(".chkYn:checked");
-		if(chk.length == 0){
-			alert("삭제할 목록을 선택해 주세요.");
-			return false;
-		}
-		$.each(chk, function(){
-			$(this).closest("tr").remove();
-		});
+			var table = $("#table01");
+			var tbody = table.find("tbody");
+			var tfoot = table.find("tfoot");
+			var chk = $(".chkYn:checked");
+			if(chk.length == 0){
+				alert("삭제할 목록을 선택해 주세요.");
+				return false;
+			}
+			$.each(chk, function(){
+				$(this).closest("tr").remove();
+			});
+	
+			if(tbody.find("tr").length == 0){
+				tbody.append('<tr class="noData" style=""><td colspan="4">자료가 없습니다.</td></tr>');
+			}
 		}
 	);
 
