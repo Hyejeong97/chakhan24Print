@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 	//엑셀업로드 클릭시
 	$(".exuBtn").on("click", function(){
-		openModal("exuDialog", "엑셀 업로드", "500", "300", true, null, null);
+		openModal("exuDialog", "엑셀 업로드", "400", "150", true, null, null);
 	});
 
 	//검색 클릭시
