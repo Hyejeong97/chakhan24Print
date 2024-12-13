@@ -189,11 +189,21 @@ $(document).ready(function(){
 		
 		              var itemTagNm1 = listItems[i].name;
 		              var nmYMargin = 13;
+				var lengthFlag = false;
 		            
 		        	nmYMargin = nmYMargin != 13 ? 13 : nmYMargin;
 		            if(itemTagNm1.length > 5){
+				    var nm1 = itemTagNm1.substring(0,7);
+						var nm2 = itemTagNm1.substring(7,itemTagNm1.length);
 						if(!listItems[i].yn){
-							pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
+							if(nm2 != ''){
+								lengthFlag = true;
+								nmYMargin -= 5.5;
+								pdf.setFontSize(19); // ITEM_NM의 폰트 크기 설정
+							}else{
+								
+								pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
+							}
 						}else{
 							nmYMargin -= 3;
 							pdf.setFontSize(18); 
@@ -206,11 +216,27 @@ $(document).ready(function(){
 							pdf.setFontSize(26); 
 						}
 					}
-					// 텍스트의 너비 계산
-					var textWidth = pdf.getTextWidth(itemTagNm1);
-					// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
-					var centeredX = positionX + (imgWidth - textWidth) / 2;
-					pdf.text(centeredX, positionY + nmYMargin, itemTagNm1);
+				
+					if(lengthFlag){
+						// 텍스트의 너비 계산
+						var textWidth = pdf.getTextWidth(nm1);
+						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+						var centeredX = positionX + (imgWidth - textWidth) / 2;
+						pdf.text(centeredX, positionY + nmYMargin, nm1);
+
+						// 텍스트의 너비 계산
+						var textWidth = pdf.getTextWidth(nm2);
+						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+						var centeredX = positionX + (imgWidth - textWidth) / 2;
+						nmYMargin += 6.5;
+						pdf.text(centeredX, positionY + nmYMargin, nm2);
+					}else{
+						// 텍스트의 너비 계산
+						var textWidth = pdf.getTextWidth(itemTagNm1);
+						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+						var centeredX = positionX + (imgWidth - textWidth) / 2;
+						pdf.text(centeredX, positionY + nmYMargin, itemTagNm1);
+					}
 						 
 		            
 					
