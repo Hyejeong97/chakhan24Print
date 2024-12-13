@@ -26,6 +26,11 @@ $(document).ready(function(){
 		openModal("qDialog", "도움말", "800", "600", null, null, null);
 	});
 
+	//엑셀업로드 클릭시
+	$(".exuBtn").on("click", function(){
+		openModal("exuDialog", "엑셀 업로드", "500", "300", true, null, null);
+	});
+
 	//검색 클릭시
 	$(".schBtn").on('click', function(){
 		var text = $(this).closest("div").find("input").val();
