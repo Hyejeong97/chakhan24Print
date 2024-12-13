@@ -524,7 +524,7 @@ function exupload(){
 	
 	                            // 클론한 tr을 tbody에 추가
 	                            $('#table01 tbody').append(tr);
-	                        });
+	                        
                         });
                     };
 
