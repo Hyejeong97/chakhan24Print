@@ -205,8 +205,14 @@ $(document).ready(function(){
 								pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
 							}
 						}else{
-							nmYMargin -= 3;
-							pdf.setFontSize(18); 
+							if(nm2 != ''){
+								lengthFlag = true;
+								nmYMargin -= 7;
+								pdf.setFontSize(16); 
+							}else{
+								nmYMargin -= 3;
+								pdf.setFontSize(18); 
+							}
 						}
 					}else{
 						if(!listItems[i].yn){
@@ -228,7 +234,11 @@ $(document).ready(function(){
 						var textWidth = pdf.getTextWidth(nm2);
 						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
 						var centeredX = positionX + (imgWidth - textWidth) / 2;
-						nmYMargin += 6.5;
+						if(!listItems[i].yn){
+							nmYMargin += 6.5;
+						}else{
+							nmYMargin += 5.5;
+						}
 						pdf.text(centeredX, positionY + nmYMargin, nm2);
 					}else{
 						// 텍스트의 너비 계산
