@@ -497,7 +497,7 @@ function exupload(){
 	const file = $('#excel-file')[0].files[0];
 	if(file == undefined){
 		alert('업로드할 파일이 선택되지 않았습니다.');
-		return
+		return false;
 	}
 	if (file) {
 		// 파일 타입 체크 (엑셀 파일인지 확인)
@@ -506,7 +506,7 @@ function exupload(){
 
                 if ($.inArray(fileExtension, validExtensions) === -1) {
                     alert('엑셀 파일만 업로드 가능합니다.'); // 엑셀 파일이 아니면 경고
-                    return;
+                    return false;
                 }
 
 		confirm("엑셀 파일을 업로드하면 기존에 입력된 데이터가 모두 초기화됩니다.\n정말로 진행하시겠습니까?");
