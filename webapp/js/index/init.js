@@ -492,6 +492,47 @@ function setMap(x, y){
 	// marker.setMap(null);   
 }
 
+/** 엑셀업로드 **/
+function exupload(){
+	const file = $('#excel-file')[0].files[0];
+	if (file) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const data = e.target.result;
+                        
+                        // 엑셀 파일을 읽어서 워크북으로 변환
+                        const workbook = XLSX.read(data, { type: 'binary' });
+                        
+                        // 첫 번째 시트만 읽기
+                        const firstSheetName = workbook.SheetNames[0];
+                        const worksheet = workbook.Sheets[firstSheetName];
+                        
+                        // 시트 데이터를 JSON으로 변환
+                        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                        // 리스트에 데이터 추가
+                        $('#table01 tbody').empty(); // 이전 리스트 초기화
+			    var tr = $('#table01 tfoot tr').clone();
+                        jsonData.forEach((row, index) => {
+	                           // 각 셀에 데이터를 넣기
+	                            tr.find('td').each(function(i) {
+	                                if (index != 0 && row[i] !== undefined) {
+	                                    $(this).val(row[i]);
+	                                }
+	                            });
+	
+	                            // 클론한 tr을 tbody에 추가
+	                            $('#table01 tbody').append(tr);
+	                        });
+                        });
+                    };
+
+                    // 엑셀 파일을 바이너리로 읽기
+                    reader.readAsBinaryString(file);
+                }
+}
+
 
 /**
 	 * 모달창
