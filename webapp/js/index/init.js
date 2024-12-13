@@ -514,18 +514,20 @@ function exupload(){
                         // 리스트에 데이터 추가
                         $('#table01 tbody').empty(); // 이전 리스트 초기화
 			    var tr = $('#table01 tfoot tr').clone();
-                        jsonData.forEach((row, index) => {
-	                           // 각 셀에 데이터를 넣기
-	                            tr.find('td').each(function(i) {
-	                                if (index != 0 && row[i] !== undefined) {
-	                                    $(this).val(row[i]);
-	                                }
-	                            });
-	
-	                            // 클론한 tr을 tbody에 추가
-	                            $('#table01 tbody').append(tr);
-	                        
-                        });
+                        $.each(jsonData, function(i, item){
+				var tr = $('#table01 tfoot tr').clone();
+				if(i != 0){
+					tr.find("input.productNm").val(item[4]);
+					tr.find("input.productAmt").val(item[12]);
+
+					if(item[0] == '음료'){
+						tr.find("input.drinkYn").prop("checked", true);
+					}
+					
+					// 클론한 tr을 tbody에 추가
+	    				$('#table01 tbody').append(tr);
+				}
+			});
                     };
 
                     // 엑셀 파일을 바이너리로 읽기
