@@ -495,7 +495,7 @@ function setMap(x, y){
 /** 엑셀업로드 **/
 function exupload(){
 	const file = $('#excel-file')[0].files[0];
-	if(file.length == 0){
+	if(file == undefined){
 		alert('업로드할 파일이 선택되지 않았습니다.');
 		return
 	}
