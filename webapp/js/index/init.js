@@ -28,6 +28,7 @@ $(document).ready(function(){
 
 	//엑셀업로드 클릭시
 	$(".exuBtn").on("click", function(){
+		$("input[name=upMth][value=D]").prop("checked", true);
 		openModal("exuDialog", "엑셀 업로드", "500", "260", "exupload()", null, null);
 	});
 
@@ -500,6 +501,7 @@ function exupload(){
 		return false;
 	}
 	if (file) {
+		var upMth = $("input[name=upMth]:checked").val();
 		// 파일 타입 체크 (엑셀 파일인지 확인)
                 const fileExtension = file.name.split('.').pop().toLowerCase();
                 const validExtensions = ['xlsx', 'xls'];
@@ -527,8 +529,9 @@ function exupload(){
                         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
                         // 리스트에 데이터 추가
-                        $('#table01 tbody').empty(); // 이전 리스트 초기화
-			    var tr = $('#table01 tfoot tr').clone();
+                        if(upMth == "D"){
+				$('#table01 tbody').empty(); // 이전 리스트 초기화
+			}
                         $.each(jsonData, function(i, item){
 				var tr = $('#table01 tfoot tr').clone();
 				if(i != 0){
