@@ -586,6 +586,9 @@ function exupload(){
                         if(upMth == "D"){
 				$('#table01 tbody').empty(); // 이전 리스트 초기화
 			}
+			if($("#table01 tbody tr.noData").length > 0 ){
+				$("#table01 tbody tr.noData").remove();
+			}
                         $.each(jsonData, function(i, item){
 				var tr = $('#table01 tfoot tr').clone();
 				if(i != 0){
