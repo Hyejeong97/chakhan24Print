@@ -138,8 +138,23 @@
 
 <div id="exuDialog" style="display:none;">
 	<div class="contents">
-		<!-- 엑셀 파일 업로드 input -->
-    		<input type="file" id="excel-file" />
+		<table class="type07">
+		    <tbody>
+		        <tr>
+		            <th>업로드 방식</th>
+		            <td>
+		                <input type="radio" name="upMth" value="D" id="deleteUpload" style="cursor:pointer;margin:3px;zoom:1.2;">
+		                <label for="deleteUpload" style="cursor:pointer;margin:3px;">기존 데이터 삭제 후 업로드</label>
+		
+		                <input type="radio" name="upMth" value="A" id="addUpload" style="cursor:pointer;margin:3px;zoom:1.2;">
+		                <label for="addUpload" style="cursor:pointer;margin:3px;">기존 데이터에 추가 업로드</label>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td colspan="2"><input type="file" id="excel-file"></td>
+		        </tr>
+		    </tbody>
+		</table>
 	</div>
 </div>
 
