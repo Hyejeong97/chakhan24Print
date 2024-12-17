@@ -29,6 +29,7 @@ $(document).ready(function(){
 	//엑셀업로드 클릭시
 	$(".exuBtn").on("click", function(){
 		$("input[name=upMth][value=D]").prop("checked", true);
+		$('#excel-file').val('');
 		openModal("exuDialog", "엑셀 업로드", "500", "260", "exupload()", null, null);
 	});
 
@@ -511,7 +512,12 @@ function exupload(){
                     return false;
                 }
 
-		confirm("엑셀 파일을 업로드하면 기존에 입력된 데이터가 모두 초기화됩니다.\n정말로 진행하시겠습니까?");
+		if(upMth == "D"){
+			confirm("엑셀 파일을 업로드하면 기존에 입력된 데이터가 모두 초기화됩니다.\n정말로 진행하시겠습니까?");
+		}else{
+			confirm("엑셀 파일을 업로드 하시겠습니까?");
+		}
+		
 		
                     const reader = new FileReader();
                     
