@@ -379,6 +379,33 @@ table.type07 td.cost{
 	font-weight:bold;
 }
 
+
+table.type08 {
+  background-color:#fff;
+  border-collapse: collapse;
+  text-align: center;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+}
+table.type08 td {
+  padding: 5px;
+  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+table.type08 tbody th {
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+table.type08 td[scope=row] {
+  padding: 5px;
+  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
 .mapTable01 td span {
 	cursor : pointer;
 }
