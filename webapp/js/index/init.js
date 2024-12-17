@@ -517,7 +517,13 @@ function exupload(){
 		}else{
 			confirm("엑셀 파일을 업로드 하시겠습니까?");
 		}
-		
+
+		// 로딩바 시작
+		$('#prtOverlay').show();
+		$('#loading-container').show();
+		$('#loading-percent').show();
+		$('#loading-bar').width(0);
+		$('#loading-percent').text('0%'); // 퍼센트 초기화
 		
                     const reader = new FileReader();
                     
@@ -551,11 +557,26 @@ function exupload(){
 					// 클론한 tr을 tbody에 추가
 	    				$('#table01 tbody').append(tr);
 				}
+				// 로딩바 진행 업데이트
+			    var progress = Math.floor(((i + 1) / jsonData.length) * 100); // 진행률 계산
+			    $('#loading-bar').width(progress + '%'); // 로딩바 업데이트
+			    $('#loading-percent').text(progress + '%'); // 퍼센트 업데이트
 			});
+			    // PDF 저장 전에 로딩바 업데이트
+	    		$('#loading-bar').width('100%'); // 로딩 완료 상태로 설정
+			$('#loading-percent').text('100%'); // 퍼센트 완료
                     };
+		
 
                     // 엑셀 파일을 바이너리로 읽기
                     reader.readAsBinaryString(file);
+
+		// 다운로드 완료 후 로딩바 숨김
+		setTimeout(function() {
+			$('#prtOverlay').hide();
+			$('#loading-container').hide();
+			$('#loading-percent').hide();
+		}, 500);
                 }
 }
 
