@@ -216,7 +216,7 @@ $(document).ready(function(){
 		
 			        if (positionX + imgWidth > pageWidth) {
 					positionX = margin + 10;
-					positionY += imgHeight + space;
+					positionY += 39;
 			        }
 		
 			        // 이미지를 추가한 후에 이미지 개수를 증가시킴
