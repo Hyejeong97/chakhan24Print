@@ -118,20 +118,17 @@
 		<span class="fontSetLg" style="display:inline-block;">행사가격표</span>
       </div>
 	<div>
-		<table class="type08" style="width:100%;">
+		<table class="type08" style="width:100%;margin-top:50px;">
 		    <tbody>
 		        <tr>
 		            <th>너비</th>
 		            <td>
-		                <input type="text" name="" value="D" id="" style=""> px
+		                <input type="text" name="" value="" id="" style="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> px
 		            </td>
 			    <th>높이</th>
 		            <td>
-		                <input type="text" name="" value="D" id="" style=""> px
+		                <input type="text" name="" value="" id="" style="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> px
 		            </td>
-		        </tr>
-		        <tr>
-		            <td colspan="2"><input type="file" id="excel-file"></td>
 		        </tr>
 		    </tbody>
 		</table>
