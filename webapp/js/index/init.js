@@ -61,6 +61,15 @@ $(document).ready(function(){
             });
 
 
+	$("input[name=imgWidth]").on('input', function(){
+		var value = $(this).val();
+		$("#formImg02").css("width", value + "px");
+	});
+
+	$("input[name=imgHeight]").on('input', function(){
+		var value = $(this).val();
+		$("#formImg02").css("height", value + "px");
+	});
 
 
 
