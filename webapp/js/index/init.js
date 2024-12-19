@@ -71,6 +71,13 @@ $(document).ready(function(){
 		$("#formImg02").css("height", value + "px");
 	});
 
+	$("#cleBtn").on('click', function(){
+		$("#formImg02").css({
+			width : "100%",
+			height : "100vh"
+		});
+	});
+
 
 
 	
