@@ -10,11 +10,11 @@ body {
 }
 
         /* 배경 이미지 설정 */
-        #2 {
+        body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            background-image: url('./webapp/img/form.jpg'); /* 배경 이미지 URL */
+            height: 100%;
+            background-image: url('../img/form2.jpg'); /* 배경 이미지 URL */
             background-size: cover;
             background-position: center;
         }
