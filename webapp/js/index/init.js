@@ -45,9 +45,14 @@ $(document).ready(function(){
             $(document).on('mousemove', function(event) {
                 // 드래그 중
                 if (isDragging) {
+                    // 새로운 위치 계산
+                    var newLeft = event.clientX - offsetX;
+                    var newTop = event.clientY - offsetY;
+
+                    // 텍스트 박스를 새로운 위치로 이동
                     $('#text-box').css({
-                        left: event.clientX - offsetX + 'px',
-                        top: event.clientY - offsetY + 'px'
+                        left: newLeft + 'px',
+                        top: newTop + 'px'
                     });
                 }
             });
