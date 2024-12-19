@@ -26,10 +26,35 @@ $(document).ready(function(){
 		openModal("qDialog", "도움말", "800", "600", null, null, null);
 	});
 
-	 // 텍스트 박스를 클릭하면 편집 가능하도록 설정
-            $('#text-box').on('click', function() {
+
+	
+
+	// 텍스트 박스 드래그 가능하도록 만드는 코드
+            var isDragging = false;
+            var offsetX, offsetY;
+
+            $('#text-box').on('mousedown', function(event) {
+                // 드래그 시작
+                isDragging = true;
+                offsetX = event.clientX - $(this).offset().left;
+                offsetY = event.clientY - $(this).offset().top;
                 $(this).addClass('edit-mode');
                 $(this).attr('contenteditable', 'true');
+            });
+
+            $(document).on('mousemove', function(event) {
+                // 드래그 중
+                if (isDragging) {
+                    $('#text-box').css({
+                        left: event.clientX - offsetX + 'px',
+                        top: event.clientY - offsetY + 'px'
+                    });
+                }
+            });
+
+            $(document).on('mouseup', function() {
+                // 드래그 종료
+                isDragging = false;
             });
 
             // 저장 버튼 클릭 시 텍스트 저장
@@ -39,6 +64,12 @@ $(document).ready(function(){
                 $('#text-box').removeClass('edit-mode');
                 $('#text-box').attr('contenteditable', 'false');
             });
+
+
+
+
+
+	
 
 	//엑셀업로드 클릭시
 	$(".exuBtn").on("click", function(){
