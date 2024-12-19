@@ -64,7 +64,7 @@ $(document).ready(function(){
 	$("input[name=imgWidth]").on('input', function(){
 		var value = $(this).val();
 		if(value == ""){
-			$("#formImg02").css("width", "100%"");
+			$("#formImg02").css("width", "100%");
 		}else{
 			$("#formImg02").css("width", value + "px");
 		}
@@ -73,7 +73,7 @@ $(document).ready(function(){
 	$("input[name=imgHeight]").on('input', function(){
 		var value = $(this).val();
 		if(value == ""){
-			$("#formImg02").css("height", "100vh"");
+			$("#formImg02").css("height", "100vh");
 		}else{
 			$("#formImg02").css("height", value + "px");
 		}
