@@ -26,6 +26,20 @@ $(document).ready(function(){
 		openModal("qDialog", "도움말", "800", "600", null, null, null);
 	});
 
+	 // 텍스트 박스를 클릭하면 편집 가능하도록 설정
+            $('#text-box').on('click', function() {
+                $(this).addClass('edit-mode');
+                $(this).attr('contenteditable', 'true');
+            });
+
+            // 저장 버튼 클릭 시 텍스트 저장
+            $('#save-btn').on('click', function() {
+                var updatedText = $('#text-box').text();
+                alert('저장된 텍스트: ' + updatedText);
+                $('#text-box').removeClass('edit-mode');
+                $('#text-box').attr('contenteditable', 'false');
+            });
+
 	//엑셀업로드 클릭시
 	$(".exuBtn").on("click", function(){
 		$("input[name=upMth][value=D]").prop("checked", true);
