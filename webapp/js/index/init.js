@@ -35,13 +35,13 @@ $(document).ready(function(){
              // 드래그 관련 이벤트 추가
       $('#text-box').on('mousedown', function(e) {
          isDragging = true;
-         offset.x = e.pageX - $div.offset().left;
-         offset.y = e.pageY - $div.offset().top;
+         offset.x = e.pageX - $(this).offset().left;
+         offset.y = e.pageY - $(this).offset().top;
       });
 
       $(document).on("mousemove", function(e) {
          if (isDragging) {
-            $div.offset({
+            $('#text-box').offset({
                top: e.pageY - offset.y,
                left: e.pageX - offset.x
             });
