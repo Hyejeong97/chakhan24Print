@@ -29,38 +29,28 @@ $(document).ready(function(){
 
 	
 
-	// 텍스트 박스 드래그 가능하도록 만드는 코드
-            var isDragging = false;
-            var offsetX, offsetY;
+	var isDragging = false;
+        var offset = { x: 0, y: 0 }; // 드래그 시 
 
-            $('#text-box').on('mousedown', function(event) {
-                // 드래그 시작
-                isDragging = true;
-                offsetX = event.clientX - $(this).offset().left;
-                offsetY = event.clientY - $(this).offset().top;
-                $(this).addClass('edit-mode');
-                $(this).attr('contenteditable', 'true');
+             // 드래그 관련 이벤트 추가
+      $('#text-box').on('mousedown', function(e) {
+         isDragging = true;
+         offset.x = e.pageX - $div.offset().left;
+         offset.y = e.pageY - $div.offset().top;
+      });
+
+      $(document).on("mousemove", function(e) {
+         if (isDragging) {
+            $div.offset({
+               top: e.pageY - offset.y,
+               left: e.pageX - offset.x
             });
+         }
+      });
 
-            $(document).on('mousemove', function(event) {
-                // 드래그 중
-                if (isDragging) {
-                    // 새로운 위치 계산
-                    var newLeft = event.clientX - offsetX;
-                    var newTop = event.clientY - offsetY;
-
-                    // 텍스트 박스를 새로운 위치로 이동
-                    $('#text-box').css({
-                        left: newLeft + 'px',
-                        top: newTop + 'px'
-                    });
-                }
-            });
-
-            $(document).on('mouseup', function() {
-                // 드래그 종료
-                isDragging = false;
-            });
+      $(document).on("mouseup", function(e) {
+         isDragging = false;
+      });
 
             // 저장 버튼 클릭 시 텍스트 저장
             $('#save-btn').on('click', function() {
