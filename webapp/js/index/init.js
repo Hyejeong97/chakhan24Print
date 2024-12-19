@@ -41,10 +41,27 @@ $(document).ready(function(){
 
       $(document).on("mousemove", function(e) {
          if (isDragging) {
-            $('#text-box').offset({
-               top: e.pageY - offset.y,
-               left: e.pageX - offset.x
-            });
+            	let newLeft = e.pageX - offset.x;
+	        let newTop = e.pageY - offset.y;
+	
+	        // 부모 요소의 크기와 위치를 계산
+	        let parentOffset = $('#formImg02').offset();
+	        let parentWidth = $('#formImg02').outerWidth();
+	        let parentHeight = $('#formImg02').outerHeight();
+	        let textBoxWidth = $('#text-box').outerWidth();
+	        let textBoxHeight = $('#text-box').outerHeight();
+	
+	        // 부모 영역 내에서만 이동하도록 제한
+	        if (newLeft < parentOffset.left) newLeft = parentOffset.left;
+	        if (newLeft + textBoxWidth > parentOffset.left + parentWidth) newLeft = parentOffset.left + parentWidth - textBoxWidth;
+	        if (newTop < parentOffset.top) newTop = parentOffset.top;
+	        if (newTop + textBoxHeight > parentOffset.top + parentHeight) newTop = parentOffset.top + parentHeight - textBoxHeight;
+	
+	        // 텍스트 박스 이동
+	        $('#text-box').offset({
+	            top: newTop,
+	            left: newLeft
+	        });
          }
       });
 
