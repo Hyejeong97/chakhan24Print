@@ -27,6 +27,20 @@ $(document).ready(function(){
 	});
 
 
+	// 버튼 클릭 시
+    $('.pdBtn').click(function() {
+	// 새로운 div 생성
+	var newDiv = $('<div>', {
+	    id: 'text-box',
+	    class: 'edit-mode',
+	    contenteditable: 'true',
+	    text: '이곳에 텍스트를 입력하세요.'
+	});
+
+	// 생성한 div를 body에 추가
+	$('body').append(newDiv);
+    });
+
 	
 
 	var isDragging = false;
