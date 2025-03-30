@@ -742,15 +742,38 @@ function exupload(){
 			if($("#table01 tbody tr.noData").length > 0 ){
 				$("#table01 tbody tr.noData").remove();
 			}
-                        $.each(jsonData, function(i, item){
+                        var ordYn = "Y";
+            		$.each(jsonData, function(i, item){
 				var tr = $('#table01 tfoot tr').clone();
-				if(i != 0){
-					tr.find("input.productNm").val(item[4]);
-					tr.find("input.productAmt").val(item[12]);
 
-					if(item[0] == '음료'){
-						tr.find("input.drinkYn").prop("checked", true);
+				if(i == 0){
+					if(item[0] == "착한가게24 엑셀 양식 (※지우지 마세요.)"){
+						ordYn = "N";
 					}
+				}
+				if(i != 0){
+					var pdNm = "";
+					var pdAmt = "";
+					var drkYn = false;
+					if(ordYn == "N"){
+						if(i > 1){
+							pdNm = item[0];
+							pdAmt = item[1];
+							if(item[2] == "Y"){
+								drkYn = true;
+							}
+						}
+					}else{
+						pdNm = item[4];
+						pdAmt = item[12];
+						if(item[0] == "음료"){
+							drkYn = true;
+						}
+					}
+					tr.find("input.productNm").val(pdNm);
+					tr.find("input.productAmt").val(pdAmt);
+					tr.find("input.drinkYn").prop("checked", drkYn);
+
 					
 					// 클론한 tr을 tbody에 추가
 	    				$('#table01 tbody').append(tr);
