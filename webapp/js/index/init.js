@@ -134,20 +134,29 @@ $(document).ready(function(){
 
 	//엑셀 양식 다운
 	$(".exfBtn").on("click", function(){
-		 // 1. 엑셀 데이터 생성 (JSON 형식)
-            var data = [
+	 // 1. 엑셀 데이터 생성 (JSON 형식)
+            var titleRow = [
+                ["착한가게24 엑셀 양식 (※지우지 마세요.)"]
+            ];
+			var data = [
                 { "상품명" : "", "판매금액" : "", "음료여부(N:음료아님/Y:음료)" : ""}
             ];
 
             // 2. 워크북 & 시트 생성
             var wb = XLSX.utils.book_new();
-            var ws = XLSX.utils.json_to_sheet(data);
+           // 2. 기존 데이터 변환 (JSON → 배열)
+			var jsonData = XLSX.utils.json_to_sheet(data, { origin: "A2" }); // 헤더를 두 번째 행부터 시작
+
+			// 3. 워크시트 생성 & 첫 번째 행 추가
+			var ws = XLSX.utils.aoa_to_sheet(titleRow); // 첫 번째 행 생성
+
+			XLSX.utils.sheet_add_json(ws, data, { origin: "A2" }); // 두 번째 행부터 데이터 추가
 
             // 3. 컬럼 너비 설정
             ws["!cols"] = [
                 { wch: 15 }, // 이름 컬럼 너비
                 { wch: 15 }, // 나이 컬럼 너비
-                { wch: 20 }  // 직업 컬럼 너비
+                { wch: 25 }  // 직업 컬럼 너비
             ];
 
             // 4. 헤더 스타일 적용 (첫 번째 행만 스타일 변경)
