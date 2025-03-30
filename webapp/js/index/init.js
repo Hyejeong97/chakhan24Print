@@ -768,7 +768,10 @@ function exupload(){
 					}else{
 						tr.find("input.productNm").val(item[4]);
 						tr.find("input.productAmt").val(item[12]);
-						tr.find("input.drinkYn").prop("checked", true);
+						if(item[0] == "음료"){
+							drkYn = true;
+						}
+						tr.find("input.drinkYn").prop("checked", drkYn);
 						// 클론한 tr을 tbody에 추가
 	    					$('#table01 tbody').append(tr);
 					}
