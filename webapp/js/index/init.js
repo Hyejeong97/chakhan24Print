@@ -154,9 +154,9 @@ $(document).ready(function(){
 
             // 3. 컬럼 너비 설정
             ws["!cols"] = [
-                { wch: 15 }, // 이름 컬럼 너비
-                { wch: 15 }, // 나이 컬럼 너비
-                { wch: 25 }  // 직업 컬럼 너비
+                { wch: 15 }, // 컬럼 너비
+                { wch: 15 }, // 컬럼 너비
+                { wch: 25 }  // 컬럼 너비
             ];
 
             // 4. 헤더 스타일 적용 (첫 번째 행만 스타일 변경)
@@ -751,28 +751,23 @@ function exupload(){
 						ordYn = "N";
 					}
 				}
+
 				if(i != 0){
-					var pdNm = "";
-					var pdAmt = "";
 					var drkYn = false;
 					if(ordYn == "N"){
 						if(i > 1){
-							pdNm = item[0];
-							pdAmt = item[1];
+							tr.find("input.productNm").val(item[0]);
+							tr.find("input.productAmt").val(item[1]);
 							if(item[2] == "Y"){
 								drkYn = true;
 							}
+							tr.find("input.drinkYn").prop("checked", drkYn);
 						}
 					}else{
-						pdNm = item[4];
-						pdAmt = item[12];
-						if(item[0] == "음료"){
-							drkYn = true;
-						}
+						tr.find("input.productNm").val(item[4]);
+						tr.find("input.productAmt").val(item[12]);
+						tr.find("input.drinkYn").prop("checked", true);
 					}
-					tr.find("input.productNm").val(pdNm);
-					tr.find("input.productAmt").val(pdAmt);
-					tr.find("input.drinkYn").prop("checked", drkYn);
 
 					
 					// 클론한 tr을 tbody에 추가
