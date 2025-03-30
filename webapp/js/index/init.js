@@ -128,7 +128,24 @@ $(document).ready(function(){
 	$(".exuBtn").on("click", function(){
 		$("input[name=upMth][value=D]").prop("checked", true);
 		$('#excel-file').val('');
-		openModal("exuDialog", "엑셀 업로드", "500", "260", "exupload()", null, null);
+		openModal("exuDialog", "엑셀 업로드", "500", "300", "exupload()", null, null);
+	});
+
+
+	$(".exfBtn").on("click", function(){
+		 // 1. 엑셀 데이터 생성 (JSON 형식)
+            var data = [
+                { 이름: "홍길동", 나이: 25, 직업: "개발자" },
+                { 이름: "김철수", 나이: 30, 직업: "디자이너" }
+            ];
+
+            // 2. 워크북 & 시트 생성
+            var wb = XLSX.utils.book_new(); // 새 엑셀 파일 생성
+            var ws = XLSX.utils.json_to_sheet(data); // JSON → 엑셀 변환
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1"); // 시트 추가
+
+            // 3. 파일 다운로드
+            XLSX.writeFile(wb, "data.xlsx"); // 파일 저장 & 다운로드 실행
 	});
 
 	//엔터 클릭시
