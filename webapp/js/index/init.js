@@ -140,8 +140,29 @@ $(document).ready(function(){
             ];
 
             // 2. 워크북 & 시트 생성
-            var wb = XLSX.utils.book_new(); // 새 엑셀 파일 생성
-            var ws = XLSX.utils.json_to_sheet(data); // JSON → 엑셀 변환
+            var wb = XLSX.utils.book_new();
+            var ws = XLSX.utils.json_to_sheet(data);
+
+            // 3. 컬럼 너비 설정
+            ws["!cols"] = [
+                { wch: 15 }, // 이름 컬럼 너비
+                { wch: 15 }, // 나이 컬럼 너비
+                { wch: 20 }  // 직업 컬럼 너비
+            ];
+
+            // 4. 헤더 스타일 적용 (첫 번째 행만 스타일 변경)
+            var headerCells = ["A1", "B1", "C1"]; // 첫 번째 행의 셀 주소
+
+            headerCells.forEach(cell => {
+                if (ws[cell]) {
+                    ws[cell].s = {
+                        font: { bold: true, color: { rgb: "000000" } }, // 굵은 검은 글씨
+                        fill: { fgColor: { rgb: "D9D9D9" } }, // 회색 배경 (#D9D9D9)
+                        alignment: { horizontal: "center", vertical: "center" } // 가운데 정렬
+                    };
+                }
+            });
+	
             XLSX.utils.book_append_sheet(wb, ws, "Sheet1"); // 시트 추가
 
 	    var today = new Date();
