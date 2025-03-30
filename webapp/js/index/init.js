@@ -762,16 +762,19 @@ function exupload(){
 								drkYn = true;
 							}
 							tr.find("input.drinkYn").prop("checked", drkYn);
+							// 클론한 tr을 tbody에 추가
+	    						$('#table01 tbody').append(tr);
 						}
 					}else{
 						tr.find("input.productNm").val(item[4]);
 						tr.find("input.productAmt").val(item[12]);
 						tr.find("input.drinkYn").prop("checked", true);
+						// 클론한 tr을 tbody에 추가
+	    					$('#table01 tbody').append(tr);
 					}
 
 					
-					// 클론한 tr을 tbody에 추가
-	    				$('#table01 tbody').append(tr);
+					
 				}
 				// 로딩바 진행 업데이트
 			    var progress = Math.floor(((i + 1) / jsonData.length) * 100); // 진행률 계산
