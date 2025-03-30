@@ -132,11 +132,11 @@ $(document).ready(function(){
 	});
 
 
+	//엑셀 양식 다운
 	$(".exfBtn").on("click", function(){
 		 // 1. 엑셀 데이터 생성 (JSON 형식)
             var data = [
-                { 이름: "홍길동", 나이: 25, 직업: "개발자" },
-                { 이름: "김철수", 나이: 30, 직업: "디자이너" }
+                { 상품명(한글): "", 판매금액: "", 음료여부(10-음료아님/20-음료): ""}
             ];
 
             // 2. 워크북 & 시트 생성
@@ -144,9 +144,17 @@ $(document).ready(function(){
             var ws = XLSX.utils.json_to_sheet(data); // JSON → 엑셀 변환
             XLSX.utils.book_append_sheet(wb, ws, "Sheet1"); // 시트 추가
 
+	    var today = new Date();
+	    var year = today.getFullYear();
+	    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    	    var day = ('0' + today.getDate()).slice(-2);
+		
+	    var dateString = year + month  + day;
+
             // 3. 파일 다운로드
-            XLSX.writeFile(wb, "data.xlsx"); // 파일 저장 & 다운로드 실행
+            XLSX.writeFile(wb, "착한가게24_엑셀업로드양식_" + dateString + ".xlsx"); // 파일 저장 & 다운로드 실행
 	});
+	
 
 	//엔터 클릭시
 	$(".srch").on('keypress', function(e){
