@@ -38,7 +38,7 @@ $(document).ready(function(){
 	});
 
 	// 생성한 div를 body에 추가
-	$('body').append(newDiv);
+	$('#formImg02').append(newDiv);
     });
 
 	
