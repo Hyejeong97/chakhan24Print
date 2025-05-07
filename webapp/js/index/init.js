@@ -62,8 +62,8 @@ $(document).ready(function(){
 	        let parentOffset = $('#formImg02').offset();
 	        let parentWidth = $('#formImg02').outerWidth();
 	        let parentHeight = $('#formImg02').outerHeight();
-	        let textBoxWidth = $('#text-box').outerWidth();
-	        let textBoxHeight = $('#text-box').outerHeight();
+	        let textBoxWidth = $(e.target).outerWidth();
+	        let textBoxHeight = $(e.target).outerHeight();
 	
 	        // 부모 영역 내에서만 이동하도록 제한
 	        if (newLeft < parentOffset.left) newLeft = parentOffset.left;
@@ -72,7 +72,7 @@ $(document).ready(function(){
 	        if (newTop + textBoxHeight > parentOffset.top + parentHeight) newTop = parentOffset.top + parentHeight - textBoxHeight;
 	
 	        // 텍스트 박스 이동
-	         $(this).find("#text-box").offset({
+	         $(e.target).offset({
 	            top: newTop,
 	            left: newLeft
 	        });
