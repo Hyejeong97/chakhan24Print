@@ -47,7 +47,7 @@ $(document).ready(function(){
         var offset = { x: 0, y: 0 }; // 드래그 시 
 
              // 드래그 관련 이벤트 추가
-      $('#text-box').on('mousedown', function(e) {
+      $('#formImg02').on('mousedown', "div" function(e) {
          isDragging = true;
          offset.x = e.pageX - $(this).offset().left;
          offset.y = e.pageY - $(this).offset().top;
