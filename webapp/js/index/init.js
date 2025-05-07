@@ -72,7 +72,7 @@ $(document).ready(function(){
 	        if (newTop + textBoxHeight > parentOffset.top + parentHeight) newTop = parentOffset.top + parentHeight - textBoxHeight;
 	
 	        // 텍스트 박스 이동
-	        $('#text-box').offset({
+	         $(this).find("#text-box").offset({
 	            top: newTop,
 	            left: newLeft
 	        });
