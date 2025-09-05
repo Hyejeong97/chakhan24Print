@@ -128,7 +128,7 @@ $(document).ready(function(){
 	$(".exuBtn").on("click", function(){
 		$("input[name=upMth][value=D]").prop("checked", true);
 		$('#excel-file').val('');
-		openModal("exuDialog", "엑셀 업로드", "500", "300", "exupload()", null, null);
+		openModal("exuDialog", "엑셀 업로드", "500", "350", "exupload()", null, null);
 	});
 
 
@@ -922,4 +922,5 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
