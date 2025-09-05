@@ -283,8 +283,38 @@ th {
   </div>
 </footer>
 
+  <div id="exuDialog" style="display:none;">
+	<div class="contents">
+		<table class="type08" style="width:100%;">
+		    <tbody>
+			<tr>
+		            <th>엑셀양식</th>
+		            <td>
+		                <button class="exfBtn" style="background-color: rgb(255, 255, 255); padding: 3px; border-radius: 6px; font-size: 16px; cursor: pointer;">양식다운</button>
+				   
+		            </td>
+		        </tr>
+		        <tr>
+		            <th>업로드 방식</th>
+		            <td>
+		                <input type="radio" name="upMth" value="D" id="deleteUpload" style="cursor:pointer;margin:3px;zoom:1.2;">
+		                <label for="deleteUpload" style="cursor:pointer;margin:3px;">기존 데이터 삭제 후 업로드</label>
+				<br>
+		                <input type="radio" name="upMth" value="A" id="addUpload" style="cursor:pointer;margin:3px;zoom:1.2;">
+		                <label for="addUpload" style="cursor:pointer;margin:3px;">기존 데이터에 추가 업로드</label>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td colspan="2"><input type="file" id="excel-file"></td>
+		        </tr>
+		    </tbody>
+		</table>
+	</div>
+</div>
+
 </body>
 </html>
+
 
 
 
