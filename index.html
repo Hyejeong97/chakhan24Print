@@ -1,237 +1,277 @@
 <html class="kor">
 <head>
-	<meta charset="UTF-8">
-	<title>착한가게24</title>
-	<meta property="og:title" content="착한가게24 점주용">
-	<meta property="og:url" content="www.kindstore.kro.kr">
-	<meta property="og:image" content="./webapp/img/kindcafe_thumb.jpg">
-	<meta property="og:description" content="착한가게24 점주용 웹 사이트 입니다.">
-	<script type="text/javascript" src="./webapp/jquery/jquery-3.7.0.min.js"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a140a6ef5eb24d9195c32555b364b653"></script>
-	<!-- jsPDF 라이브러리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="./webapp/js/index/init.js"></script>
-	<script type="text/javascript" src="./webapp/js/Cafe24Ohsquare-v2.0.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-	<link href="https://webfontworld.github.io/tway/TwaySky.css" rel="stylesheet">
-	<link href="https://webfontworld.github.io/tway/TwayAir.css" rel="stylesheet">
-	<link href="https://webfontworld.github.io/tway/TwayFly.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>착한가게24</title>
+  <meta property="og:title" content="착한가게24 점주용">
+  <meta property="og:url" content="www.kindstore.kro.kr">
+  <meta property="og:image" content="./webapp/img/kindcafe_thumb.jpg">
+  <meta property="og:description" content="착한가게24 점주용 웹 사이트 입니다.">
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="./webapp/jquery/jquery-3.7.0.min.js"></script>
+  <script type="text/javascript" src="./webapp/js/index/init.js"></script>
+  <script type="text/javascript" src="./webapp/js/Cafe24Ohsquare-v2.0.js"></script>
+
+  <!-- Fonts -->
+  <link href="https://webfontworld.github.io/tway/TwaySky.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'TwaySky', sans-serif;
+      background-color: #f9fbff;
+      color: #333;
+    }
+
+    /* 네비게이션 */
+    nav {
+      background: linear-gradient(90deg, #3fa9f5, #00c6ff);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      margin-right: 20px;
+      transition: opacity .2s;
+    }
+
+    nav ul li a:hover {
+      opacity: 0.7;
+    }
+
+    nav .problem {
+      background: #fff;
+      color: #3fa9f5 !important;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: background .2s;
+    }
+
+    nav .problem:hover {
+      background: #e8f6ff;
+    }
+
+    /* 섹션 */
+    section {
+      padding: 120px 5% 80px;
+      min-height: 100vh;
+    }
+
+    .fontSetLg {
+      font-size: 26px;
+      font-weight: 700;
+      color: #3fa9f5;
+    }
+
+    /* 검색 및 버튼 영역 */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .srch {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 14px;
+      width: 220px;
+    }
+
+    button {
+      border: none;
+      background: #3fa9f5;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 5px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #2f91d9;
+    }
+
+    /* 테이블 */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #3fa9f5;
+      color: #fff;
+      padding: 12px;
+      font-size: 15px;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #eaeaea;
+      text-align: center;
+    }
+
+    tr.noData td {
+      color: #999;
+      font-style: italic;
+    }
+
+    /* 안내문 */
+    .notice {
+      margin-top: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .notice .lineSet {
+      color: #3fa9f5;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+    }
+
+    .top-footer {
+      background: #eef7ff;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .end-footer1 {
+      background: #3fa9f5;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .end-footer1 span {
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
-<nav>
-<!-- 	<div id="logo"> -->
-<!-- 		chackhan24 -->
-<!-- 	</div> -->
-  <ul>
-    <li><a href="#1" style="font-size:20px;margin-right:15px;">착한가게24</a></li>
-	  <li><a href="#2" style="font-size:20px;margin-right:15px;">행사가격표</a></li>
-  </ul>
-<div style="float:right">
-    <a href="#1" class="problem" style="font-size:18px;font-weight:bold;color:#fff;">도움말</a>
-    <img src="./webapp/img/problem.jpg" width="20px" height="20px" style="margin-right:15px;">
 
+<!-- 네비게이션 -->
+<nav>
+  <ul>
+    <li><a href="#1">착한가게24</a></li>
+    <li><a href="#1">금액 내역</a></li>
+  </ul>
+  <div>
+    <a href="#qDialog" class="problem">도움말</a>
+    <img src="./webapp/img/problem.jpg" width="20px" height="20px" style="vertical-align:middle;">
   </div>
 </nav>
 
-<div class="sections">
-<section id="1" style="display: flex; flex-direction: column; margin-top:100px;align-items: center; height: 1000px; width: 100%; background-size: cover; background-repeat: no-repeat; position: relative;">
-<div class="mt80"></div>
-	<div style="width:100%;height:50px;text-align:center;">
-		<span class="fontSetLg" style="display:inline-block;">금액 내역</span>
-      </div>
-      
-     <div class="mt10" style="width:70%;">
-	<div style="width:70%;height:50px;text-align:left;margin:auto;float:left;">
-		<input type="text" class="srch" style="width:25%;height:41px;border-radius:5px;" />
-		<button class="schBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">검색</button>
-	</div>
-	<div style="width:30%;height:50px;text-align:right;margin:auto;float:right;">
-		<button class="exuBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">엑셀업로드</button>
-		<button class="addBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">추가</button>
-	      	<button class="delBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">삭제</button>
-		<button class="prtBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">프린트</button>
-	</div>
-      </div>
-      <div class="src01" style="width:70%;height:500px;overflow:auto;float:left;">
-		<table class="type07" id="table01" style="width:100%;margin:auto;">
-		  <colgroup>
-			  <col width="50px">
-		  	<col width="150px">
-		  	<col width="150px">
-		  	<col width="150px">
-		  </colgroup>
-		  <thead>
-		  <tr>
-		    <th scope="cols"></th>
-		    <th scope="cols">상품명</th>
-		    <th scope="cols">금액</th>
-		    <th scope="cols">음료여부</th>
-		  </tr>
-		  </thead>
-		  <tbody>
-			  <tr class="noData">
-				  <td colspan="4">자료가 없습니다.</td>
-			  </tr>
-		  </tbody>
-		  <tfoot style="display:none;">
-			  <tr>
-				  <td><input type="checkbox" class="chkYn" style="zoom:1.5;"/></td>
-				  <td><input type="text" class="productNm" style="width:80%;height:40px;border-radius:5px;" maxlength="16" placeholder=""/></td>
-				  <td><input type="text" class="productAmt" style="width:80%;height:40px;border-radius:5px;" maxlength="5" placeholder="숫자만 입력해 주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/></td>
-				  <td><input type="checkbox" class="drinkYn" style="zoom:1.5;" /></td>
-			  </tr>
-		  </tfoot>
-		</table>
-	</div>
-
-	
-      <div class="mt20"></div>
-      <div style="width:70%;height:50px;text-align:left;">
-		<span class="fontJnSet" style="display:inline-block;">
-			* 상품명은 <span class="lineSet">16 글자까지</span> 입력 가능합니다.
-		</span><br>
-	      <span class="fontJnSet" style="display:inline-block;">
-			* 금액은 <span class="lineSet">다섯 글자까지</span> 입력 가능합니다.
-		</span><br>
-	      <span class="fontJnSet" style="display:inline-block;">
-			* 금액은 <span class="lineSet">숫자만</span> 입력 가능합니다.
-		</span><br>
-	      <span class="fontJnSet" style="display:inline-block;">
-			* 상품이 <span class="lineSet">음료일 경우</span>, 음료여부를 체크하면 가격표의 크기가 작게 표시됩니다.
-		</span><br>
-	      <span class="fontJnSet" style="display:inline-block;">
-			* 새로고침 시 <span class="lineSet">초기화 되어</span> 데이터가 사라질 수 있으니, 유의해 주세요.
-		</span><br>
-		
-      </div>
-	
-</section>
-<section id="2" style="/**display: flex; **/ display:none; flex-direction: column; margin-top:100px;align-items: center; height: 1000px; width: 100%; background-size: cover; background-repeat: no-repeat; position: relative;">
-<div class="mt80"></div>
-	<div style="width:100%;height:50px;text-align:center;">
-		<span class="fontSetLg" style="display:inline-block;">행사가격표</span>
-      </div>
-	<div>
-		<table class="type08" style="width:100%;margin-top:50px;">
-		    <tbody>
-		        <tr>
-		            <th>너비</th>
-		            <td>
-		                <input type="text" name="imgWidth" value="" id="" style="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> px
-		            </td>
-			    <th>높이</th>
-		            <td>
-		                <input type="text" name="imgHeight" value="" id="" style="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> px
-		            </td>
-			   <td>
-				   <button class="cleBtn" style="background-color:#fff;padding:5px;border-radius:6px;font-size:15px;cursor:pointer;">초기화</button>
-			   </td>
-		        </tr>
-		    </tbody>
-		</table>
-	</div>
-	<div style="margin-top:10px;">
-		<button class="pdBtn" style="background-color: rgb(255, 255, 255); padding: 5px; border-radius: 6px; font-size: 20px; cursor: pointer;">상품명추가</button>	
-	    	<button class="amtBtn" style="background-color: rgb(255, 255, 255); padding: 5px; border-radius: 6px; font-size: 20px; cursor: pointer;">금액추가</button>	
-	    	<button class="aroBtn" style="background-color: rgb(255, 255, 255); padding: 5px; border-radius: 6px; font-size: 20px; cursor: pointer;">화살표추가</button>	
-	</div>
-	<div id="formImg02" style="background-position: center;height: 100vh; width: 100%; background-size: 100% 100%; background-image: url('./webapp/img/form2.jpg'); background-repeat: no-repeat;">
-	    <div id="text-box" class="edit-mode" contenteditable="true">
-	        이곳에 텍스트를 입력하세요.
-	    </div>
-	</div>
-	<button id="save-btn">저장</button>
-	
-</section>
-
- 
-</div>
-
-<div id="prtOverlay"></div>
-<div id="loading-container" style="display: none;">
-    <div id="loading-bar"></div>
+<!-- 금액 내역 Section -->
+<section id="1">
+  <div style="text-align:center;">
+    <span class="fontSetLg">금액 내역</span>
   </div>
-<!-- 퍼센트 텍스트 -->
-<div id="loading-percent" style="display:none;">0%</div>
 
-<div id="qDialog" style="display:none;">
-	<div class="contents">
-		<span>1. 추가 버튼을 클릭하면 금액 내역이 추가됩니다.</span>
-		<img src="./webapp/img/problem01.png" style="width:100%;height:325px;margin-top:10px;margin-bottom:30px;"/>
-		<span>2. 삭제할 금액 내역을 선택한 후, 삭제 버튼을 클릭하면 해당 금액 내역이 삭제됩니다.</span>
-		<img src="./webapp/img/problem02.png" style="width:100%;height:325px;margin-top:10px;margin-bottom:30px;"/>
-		<span>3. 프린트 버튼을 클릭하면 PDF 파일로 다운로드 됩니다.</span>
-		<img src="./webapp/img/problem03.png" style="width:100%;height:325px;margin-top:10px;margin-bottom:30px;"/>
-		<span>4. 다운로드 내역에서 PDF 파일이 다운로드된 것을 확인할 수 있습니다.</span>
-		<img src="./webapp/img/problem04.png" style="width:100%;height:325px;margin-top:10px;margin-bottom:30px;"/>
-	</div>
-</div>
+  <div class="toolbar">
+    <div>
+      <input type="text" class="srch" placeholder="상품명 검색">
+      <button class="schBtn">검색</button>
+    </div>
+    <div>
+      <button class="exuBtn">엑셀업로드</button>
+      <button class="addBtn">추가</button>
+      <button class="delBtn">삭제</button>
+      <button class="prtBtn">프린트</button>
+    </div>
+  </div>
 
-<div id="exuDialog" style="display:none;">
-	<div class="contents">
-		<table class="type08" style="width:100%;">
-		    <tbody>
-			<tr>
-		            <th>엑셀양식</th>
-		            <td>
-		                <button class="exfBtn" style="background-color: rgb(255, 255, 255); padding: 3px; border-radius: 6px; font-size: 16px; cursor: pointer;">양식다운</button>
-				    <br>
-				<span style="font-size:11px;">* 제공하는 양식 외에도 오더퀸 백오피스 엑셀 업로드가 가능합니다.</span>
-		            </td>
-		        </tr>
-		        <tr>
-		            <th>업로드 방식</th>
-		            <td>
-		                <input type="radio" name="upMth" value="D" id="deleteUpload" style="cursor:pointer;margin:3px;zoom:1.2;">
-		                <label for="deleteUpload" style="cursor:pointer;margin:3px;">기존 데이터 삭제 후 업로드</label>
-				<br>
-		                <input type="radio" name="upMth" value="A" id="addUpload" style="cursor:pointer;margin:3px;zoom:1.2;">
-		                <label for="addUpload" style="cursor:pointer;margin:3px;">기존 데이터에 추가 업로드</label>
-		            </td>
-		        </tr>
-		        <tr>
-		            <td colspan="2"><input type="file" id="excel-file"></td>
-		        </tr>
-		    </tbody>
-		</table>
-	</div>
-</div>
+  <table id="table01">
+    <thead>
+      <tr>
+        <th></th>
+        <th>상품명</th>
+        <th>금액</th>
+        <th>음료여부</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="noData">
+        <td colspan="4">자료가 없습니다.</td>
+      </tr>
+    </tbody>
+    <tfoot style="display:none;">
+      <tr>
+        <td><input type="checkbox" class="chkYn" style="zoom:1.2;"></td>
+        <td><input type="text" class="productNm" maxlength="16" placeholder="상품명 입력"></td>
+        <td><input type="text" class="productAmt" maxlength="5" placeholder="숫자만 입력" 
+          oninput="this.value=this.value.replace(/[^0-9]/g,'');"></td>
+        <td><input type="checkbox" class="drinkYn" style="zoom:1.2;"></td>
+      </tr>
+    </tfoot>
+  </table>
 
+  <div class="notice">
+    * 상품명은 <span class="lineSet">16 글자까지</span> 입력 가능합니다.<br>
+    * 금액은 <span class="lineSet">다섯 글자까지</span> 입력 가능합니다.<br>
+    * 금액은 <span class="lineSet">숫자만</span> 입력 가능합니다.<br>
+    * 상품이 <span class="lineSet">음료일 경우</span>, 가격표 크기가 작게 표시됩니다.<br>
+    * 새로고침 시 <span class="lineSet">초기화</span>되어 데이터가 사라질 수 있습니다.
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-<div class="container top-footer" style="display:flex;">
-		<div style="width:100%;height:50px;padding:20px;">
-		<span class="fontSetW20">아래 번호 클릭 시 전화 연결이 가능합니다.</span><br>
-		<span class="fontSetWLg">[ 상담문의 ]</span>&nbsp;
-		<a href="tel:1588-7126" class="fontSetWLg consulting" style="display:inline-block;">1588-7126</a>&nbsp;
-		<span class="fontSetWTitle" style="display:inline-block;">(연중무휴)</span>
-      </div>
-      <div>
-      	<img src="./webapp/img/mapImg.jpg" style="width:170px;height:150px;padding:20px;">
-      </div>
+  <div class="container top-footer">
+    <div>
+      <span>아래 번호 클릭 시 전화 연결이 가능합니다.</span><br>
+      <span>[ 상담문의 ]</span>&nbsp;
+      <a href="tel:1588-7126" style="font-weight:bold;color:#3fa9f5;">1588-7126</a>&nbsp;
+      <span>(연중무휴)</span>
     </div>
-    <div class="container end-footer1" style="background-color:#787878;height:150px;text-align:center;">
-      	<span class="fontGodo14" style="color:#fff;display:inline-block;padding-top:20px;">착한가게24</span><br>
-      	<span class="fontGodo14" style="color:#fff;display:inline-block;">사업자등록번호 : 126-35-01322</span><br>
-      	<span class="fontGodo14" style="color:#fff;display:inline-block;">대표자 : 조 영 진</span><br>
-      	<span class="fontGodo14" style="color:#fff;display:inline-block;">TEL. 1588-7126</span><br>
-      	<span class="fontGodo14" style="color:#fff;display:inline-block;">서울특별시 서울 강서구 강서로 12길 31 1층 착한가게24</span>
+    <div>
+      <img src="./webapp/img/mapImg.jpg" style="width:170px;height:150px;">
     </div>
-    <div class="container end-footer">
-      
-    </div>
-
+  </div>
+  <div class="container end-footer1">
+    <span>착한가게24</span>
+    <span>사업자등록번호 : 126-35-01322</span>
+    <span>대표자 : 조 영 진</span>
+    <span>TEL. 1588-7126</span>
+    <span>서울특별시 서울 강서구 강서로 12길 31 1층 착한가게24</span>
+  </div>
 </footer>
 
 </body>
-
-<!-- <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->
-
-	<link href="./webapp/css/index.css" rel="stylesheet" type="text/css">
-	<link href="./webapp/css/cssSet.css" rel="stylesheet" type="text/css">
 </html>
