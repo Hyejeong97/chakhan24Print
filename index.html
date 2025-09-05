@@ -8,6 +8,10 @@
   <meta property="og:description" content="착한가게24 점주용 웹 사이트 입니다.">
 
   <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
   <script type="text/javascript" src="./webapp/jquery/jquery-3.7.0.min.js"></script>
   <script type="text/javascript" src="./webapp/js/index/init.js"></script>
   <script type="text/javascript" src="./webapp/js/Cafe24Ohsquare-v2.0.js"></script>
@@ -26,7 +30,7 @@
 
     /* 네비게이션 */
     nav {
-      background: linear-gradient(90deg, #3fa9f5, #00c6ff);
+      background: linear-gradient(90deg, #36c0d6, #3dd3e1);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -100,22 +104,26 @@
       width: 220px;
     }
 
-    button {
-      border: none;
-      background: #3fa9f5;
-      color: #fff;
-      padding: 8px 15px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-left: 5px;
-      transition: background 0.2s;
-    }
+/* 버튼 색상 */
+button {
+  border: none;
+  background: #36c0d6; /* 민트 섞인 파랑 */
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 3px;
+  transition: background 0.2s;
+}
 
-    button:hover {
-      background: #2f91d9;
-    }
+button:hover {
+  background: #2fa4b0; /* 호버 시 조금 더 진한 민트블루 */
+}
+
+
+
 
     /* 테이블 */
     table {
@@ -127,12 +135,15 @@
       overflow: hidden;
     }
 
-    th {
-      background: #3fa9f5;
-      color: #fff;
-      padding: 12px;
-      font-size: 15px;
-    }
+    /* 테이블 헤더 색상 */
+th {
+  background: #36c0d6; /* 민트 섞인 파랑 */
+  color: #fff;
+  padding: 12px;
+  font-size: 15px;
+}
+
+
 
     td {
       padding: 12px;
@@ -275,4 +286,5 @@
 
 </body>
 </html>
+
 
