@@ -184,87 +184,88 @@ $(document).ready(function(){
 	
 
 	//엔터 클릭시
-	$(".srch").on('keypress', function(e){
-		if (e.key === "Enter") {
-			var text = $(this).closest("div").find("input").val();
-			var table = $("#table01");
-			var tbody = table.find("tbody");
-			var tr = tbody.find("tr");
-	
-			if(text == ""){
-				alert("검색어를 입력해 주세요.");
-				return false;
-			}
-			
-			// 모든 항목에서 깜빡이는 효과 제거
-	    		tr.find(".productNm").removeClass("blinking-border");
-			tr.find(".productNm").css({
-				"borderColor" : "black",
-				"border-width" : "2px",
-				"border-style" : "solid"
-			});
-	
-			
-			$.each(tr, function(i, item){
-				var name = $(item).find(".productNm").val();
-				if(name.indexOf(text) > -1){
-					// 검색된 항목에 깜빡이는 경계선 효과 적용
-	            			$(item).find(".productNm").addClass("blinking-border");
-					$(item).find(".productNm").css({
-						"borderColor" : "#FFEB3B",
-						"border-width" : "5px",
-						"border-style" : "solid"
-					});
-					lastFoundItem = $(item).find(".productNm"); // 마지막으로 찾은 항목 저장
-				}
-			});
-			// 마지막으로 찾은 항목에 포커스
-			if (lastFoundItem) {
-				lastFoundItem[0].focus();
-			}
-		}
-	});
+$(".srch").on('keypress', function(e){
+    if (e.key === "Enter") {
+        var text = $(this).closest("div").find("input").val();
+        var table = $("#table01");
+        var tbody = table.find("tbody");
+        var tr = tbody.find("tr");
+        var lastFoundItem = null;
 
-	//검색 클릭시
-	$(".schBtn").on('click', function(){
-		var text = $(this).closest("div").find("input").val();
-		var table = $("#table01");
-		var tbody = table.find("tbody");
-		var tr = tbody.find("tr");
+        if(text == ""){
+            alert("검색어를 입력해 주세요.");
+            return false;
+        }
+        
+        // 모든 항목에서 깜빡이는 효과 제거
+        tr.find(".productNm").removeClass("blinking-border").css({
+            "borderColor" : "#ccc",
+            "border-width" : "2px",
+            "border-style" : "solid",
+            "box-shadow": "none"
+        });
 
-		if(text == ""){
-			alert("검색어를 입력해 주세요.");
-			return false;
-		}
-		
-		// 모든 항목에서 깜빡이는 효과 제거
-    		tr.find(".productNm").removeClass("blinking-border");
-		tr.find(".productNm").css({
-			"borderColor" : "black",
-			"border-width" : "2px",
-			"border-style" : "solid"
-		});
+        $.each(tr, function(i, item){
+            var name = $(item).find(".productNm").val();
+            if(name.indexOf(text) > -1){
+                // 검색된 항목에 깜빡이는 경계선 효과 적용
+                $(item).find(".productNm").addClass("blinking-border").css({
+                    "borderColor" : "#36c0d6", // 민트-블루 강조
+                    "border-width" : "2px",
+                    "border-style" : "solid",
+                    "box-shadow" : "0 0 8px rgba(54,192,214,0.7)"
+                });
+                lastFoundItem = $(item).find(".productNm"); // 마지막으로 찾은 항목 저장
+            }
+        });
+        // 마지막으로 찾은 항목에 포커스
+        if (lastFoundItem) {
+            lastFoundItem[0].focus();
+        }
+    }
+});
 
-		
-		$.each(tr, function(i, item){
-			var name = $(item).find(".productNm").val();
-			if(name.indexOf(text) > -1){
-				// 검색된 항목에 깜빡이는 경계선 효과 적용
-            			$(item).find(".productNm").addClass("blinking-border");
-				$(item).find(".productNm").css({
-					"borderColor" : "#FFEB3B",
-					"border-width" : "5px",
-					"border-style" : "solid"
-				});
-				lastFoundItem = $(item).find(".productNm"); // 마지막으로 찾은 항목 저장
-			}
-		});
-		// 마지막으로 찾은 항목에 포커스
-		if (lastFoundItem) {
-			lastFoundItem[0].focus();
-		}
-		
-	});
+// 검색 클릭시
+$(".schBtn").on('click', function(){
+    var text = $(this).closest("div").find("input").val();
+    var table = $("#table01");
+    var tbody = table.find("tbody");
+    var tr = tbody.find("tr");
+    var lastFoundItem = null;
+
+    if(text == ""){
+        alert("검색어를 입력해 주세요.");
+        return false;
+    }
+
+    // 모든 항목에서 깜빡이는 효과 제거
+    tr.find(".productNm").removeClass("blinking-border").css({
+        "borderColor" : "#ccc",
+        "border-width" : "2px",
+        "border-style" : "solid",
+        "box-shadow": "none"
+    });
+
+    $.each(tr, function(i, item){
+        var name = $(item).find(".productNm").val();
+        if(name.indexOf(text) > -1){
+            // 검색된 항목에 깜빡이는 경계선 효과 적용
+            $(item).find(".productNm").addClass("blinking-border").css({
+                "borderColor" : "#36c0d6",
+                "border-width" : "2px",
+                "border-style" : "solid",
+                "box-shadow" : "0 0 8px rgba(54,192,214,0.7)"
+            });
+            lastFoundItem = $(item).find(".productNm"); // 마지막으로 찾은 항목 저장
+        }
+    });
+
+    // 마지막으로 찾은 항목에 포커스
+    if (lastFoundItem) {
+        lastFoundItem[0].focus();
+    }
+});
+
 
 	//추가 클릭시
 	$(".addBtn").on('click', function(){
@@ -919,6 +920,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
