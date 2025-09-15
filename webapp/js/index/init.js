@@ -29,7 +29,7 @@ $(document).ready(function(){
 		if(cashYn){
 			$(".onlyCash").css("display", "none");
 		}else{
-			$(".onlyCash").removeAttr("display");
+			$(".onlyCash").removeAttr("style");
 		}
 	});
 
@@ -955,6 +955,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
