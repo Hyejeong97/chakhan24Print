@@ -513,7 +513,11 @@ $(".schBtn").on('click', function(){
 					}
 					
 				}
-				pdf.text(positionX + 5, positionY + amtYMargin, listItems[i].amt);
+				if(cashYn){
+					pdf.text(positionX + 5, positionY + amtYMargin - 7, listItems[i].amt);
+				}else{
+					pdf.text(positionX + 5, positionY + amtYMargin, listItems[i].amt);
+				}
 		
 		
 				// 원래의 폰트 크기로 되돌리기 (다음 루프에 영향을 주지 않게 하기 위해)
@@ -963,6 +967,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
