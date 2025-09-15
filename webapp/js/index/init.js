@@ -25,7 +25,12 @@ $(document).ready(function(){
 
 	//금액만 체크 시
 	$(".cashYn").on("click", function(){
-		$(".onlyCash").css("display", "none");
+		var cashYn = $(this).prop("checked");
+		if(cashYn){
+			$(".onlyCash").css("display", "none");
+		}else{
+			$(".onlyCash").removeStyle("display");
+		}
 	});
 
 
@@ -335,8 +340,8 @@ $(".schBtn").on('click', function(){
 		$('#loading-bar').width(0);
 		$('#loading-percent').text('0%'); // 퍼센트 초기화
 
-		// 약간의 대기 후에 로딩바 시작
-    		setTimeout(function() {
+			// 약간의 대기 후에 로딩바 시작
+    	setTimeout(function() {
 			// jsPDF 객체 생성
 			const { jsPDF } = window.jspdf;
 			const doc = new jsPDF();
@@ -344,8 +349,9 @@ $(".schBtn").on('click', function(){
 			var table = $("#table01");
 			var tbody = table.find("tbody");
 			var tr = tbody.find("tr");
+			var cashYn = $("input.cashYn").prop("checked");
 			
-	            	// 리스트 항목 가져오기
+	         // 리스트 항목 가져오기
 			var listItems = new Array();
 			$.each(tr, function(i, item){
 				var obj = new Object();
@@ -358,22 +364,27 @@ $(".schBtn").on('click', function(){
 				listItems.push(obj);
 			});
 			var pdf = new jsPDF();
-		    	var img = new Image();
-			var imgSrc = './webapp/img/form.jpg';
+		    var img = new Image();
+			var imgSrc;
+			if(cashYn){
+				imgSrc = './webapp/img/form2.jpg';
+			}else{
+				imgSrc = './webapp/img/form.jpg';
+			}
 		
-		        var imgWidth = 60;
-		        var imgHeight = 38;
-		        var positionX = 15;
-		        var positionY = 5;
-		        var pageWidth = 210;
-		        var pageHeight = 297;
-		        var margin = 5;
-		        var space = -2;
-		        var imagesPerPage = 18; // 한 페이지에 들어갈 이미지 개수
-		        var imagesCount = 0; // 페이지에 추가된 이미지 개수
+		    var imgWidth = 60;
+		    var imgHeight = 38;
+		    var positionX = 15;
+		    var positionY = 5;
+		    var pageWidth = 210;
+		    var pageHeight = 297;
+		    var margin = 5;
+		    var space = -2;
+		    var imagesPerPage = 18; // 한 페이지에 들어갈 이미지 개수
+		    var imagesCount = 0; // 페이지에 추가된 이미지 개수
 			var stdWidth = 0;
 	
-		        for (var i = 0; i < listItems.length; i++) {
+			for (var i = 0; i < listItems.length; i++) {
 				if(listItems[i].yn){
 					imgWidth = 50;
 					imgHeight = 30;
@@ -382,161 +393,159 @@ $(".schBtn").on('click', function(){
 					imgHeight = 38;
 				}
 				if(i == 0 || i % 3 == 0){
-						stdWidth = imgHeight + 1;
-					}
-		            	if (imagesCount >= imagesPerPage) {
-			                pdf.addPage();
-			                imagesCount = 0;
-			                positionX = margin + 10;
-			                positionY = margin;
-		            	}
-		
-			        if (positionX + imgWidth > pageWidth) {
+					stdWidth = imgHeight + 1;
+				}
+				if (imagesCount >= imagesPerPage) {
+					pdf.addPage();
+					imagesCount = 0;
 					positionX = margin + 10;
-					positionY += 39;
-			        }
+					positionY = margin;
+				}
 		
-			        // 이미지를 추가한 후에 이미지 개수를 증가시킴
-			        imagesCount++;
+				if (positionX + imgWidth > pageWidth) {
+				positionX = margin + 10;
+				positionY += 39;
+				}
 		
-		                //폰트 추가
-		                pdf.addFileToVFS('Cafe24Ohsquare.ttf', _cafe24Ohsquare);
-		                pdf.addFont('Cafe24Ohsquare.ttf','Cafe24Ohsquare', 'normal');
-		                pdf.setFont('Cafe24Ohsquare');
+				// 이미지를 추가한 후에 이미지 개수를 증가시킴
+				imagesCount++;
 		
-		               // 테두리 추가
-		              pdf.setLineWidth(1);
-		              pdf.rect(positionX, positionY, imgWidth, imgHeight);
+				//폰트 추가
+				pdf.addFileToVFS('Cafe24Ohsquare.ttf', _cafe24Ohsquare);
+				pdf.addFont('Cafe24Ohsquare.ttf','Cafe24Ohsquare', 'normal');
+				pdf.setFont('Cafe24Ohsquare');
 		
-		              // 이미지 추가
-		              pdf.addImage(imgSrc, 'PNG', positionX, positionY, imgWidth, imgHeight);
-		
-		              // ITEM_NM에 대한 폰트 및 스타일 설정 (검정색)
-		              pdf.setTextColor(0, 0, 0); // 검정색
-		              pdf.setFontSize(20);
-		
-		              var itemTagNm1 = listItems[i].name;
-		              var nmYMargin = 13;
+				// 테두리 추가
+				pdf.setLineWidth(1);
+				pdf.rect(positionX, positionY, imgWidth, imgHeight);
+	
+				// 이미지 추가
+				pdf.addImage(imgSrc, 'PNG', positionX, positionY, imgWidth, imgHeight);
+	
+				// ITEM_NM에 대한 폰트 및 스타일 설정 (검정색)
+				pdf.setTextColor(0, 0, 0); // 검정색
+				pdf.setFontSize(20);
+	
+				var itemTagNm1 = listItems[i].name;
+				var nmYMargin = 13;
 				var lengthFlag = false;
 		            
-		        	nmYMargin = nmYMargin != 13 ? 13 : nmYMargin;
-		            if(itemTagNm1.length > 5){
-				    var nm1 = itemTagNm1.substring(0,7);
-						var nm2 = itemTagNm1.substring(7,itemTagNm1.length);
-						if(!listItems[i].yn){
-							if(nm2 != ''){
-								lengthFlag = true;
-								nmYMargin -= 5.5;
-								pdf.setFontSize(19); // ITEM_NM의 폰트 크기 설정
-							}else{
-								
-								pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
-							}
-						}else{
-							if(nm2 != ''){
-								lengthFlag = true;
-								nmYMargin -= 7;
-								pdf.setFontSize(16); 
-							}else{
-								nmYMargin -= 3;
-								pdf.setFontSize(18); 
-							}
+		        nmYMargin = nmYMargin != 13 ? 13 : nmYMargin;
+		        if(itemTagNm1.length > 5){
+					var nm1 = itemTagNm1.substring(0,7);
+					var nm2 = itemTagNm1.substring(7,itemTagNm1.length);
+					if(!listItems[i].yn){
+						if(nm2 != ''){
+							lengthFlag = true;
+							nmYMargin -= 5.5;
+							pdf.setFontSize(19); // ITEM_NM의 폰트 크기 설정
+						}else{		
+							pdf.setFontSize(22); // ITEM_NM의 폰트 크기 설정
 						}
 					}else{
-						if(!listItems[i].yn){
-							pdf.setFontSize(30); // ITEM_NM의 폰트 크기 설정
+						if(nm2 != ''){
+							lengthFlag = true;
+							nmYMargin -= 7;
+							pdf.setFontSize(16); 
 						}else{
 							nmYMargin -= 3;
-							pdf.setFontSize(26); 
+							pdf.setFontSize(18); 
 						}
 					}
-				
-					if(lengthFlag){
-						// 텍스트의 너비 계산
-						var textWidth = pdf.getTextWidth(nm1);
-						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
-						var centeredX = positionX + (imgWidth - textWidth) / 2;
-						pdf.text(centeredX, positionY + nmYMargin, nm1);
-
-						// 텍스트의 너비 계산
-						var textWidth = pdf.getTextWidth(nm2);
-						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
-						var centeredX = positionX + (imgWidth - textWidth) / 2;
-						if(!listItems[i].yn){
-							nmYMargin += 6.5;
-						}else{
-							nmYMargin += 5.5;
-						}
-						pdf.text(centeredX, positionY + nmYMargin, nm2);
+				}else{
+					if(!listItems[i].yn){
+						pdf.setFontSize(30); // ITEM_NM의 폰트 크기 설정
 					}else{
-						// 텍스트의 너비 계산
-						var textWidth = pdf.getTextWidth(itemTagNm1);
-						// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
-						var centeredX = positionX + (imgWidth - textWidth) / 2;
-						pdf.text(centeredX, positionY + nmYMargin, itemTagNm1);
+						nmYMargin -= 3;
+						pdf.setFontSize(26); 
 					}
-						 
-		            
-					
-					// 금액 설정
-					pdf.setTextColor(255, 0, 0); // 빨간색
-					var amtYMargin = 30;
-					amtYMargin = amtYMargin != 30 ? 30 : amtYMargin;
-				    if(listItems[i].amt.length > 4){
-						if(!listItems[i].yn){
-							positionX += 3;
-							pdf.setFontSize(38); // ITEM_NM의 폰트 크기 설정
-						}else{
-							positionX += 3;
-							amtYMargin -= 6;
-							pdf.setFontSize(32); 
-						}
-						
-				    }else{
-					    space = space != -2 ? -2 : space;
-						if(!listItems[i].yn){
-							positionX += 3;
-							pdf.setFontSize(48); // ITEM_NM의 폰트 크기 설정
-						}else{
-							amtYMargin -= 5;
-							//positionX -= 2;
-							space += 2;
-							pdf.setFontSize(41); // ITEM_NM의 폰트 크기 설정
-						}
-						
-				    }
-		            pdf.text(positionX + 5, positionY + amtYMargin, listItems[i].amt);
-		
-		
-		            // 원래의 폰트 크기로 되돌리기 (다음 루프에 영향을 주지 않게 하기 위해)
-		            pdf.setFontSize(20);
-		
-		            positionX += imgWidth + space;
-	
-				    // 로딩바 진행 업데이트
-				    var progress = Math.floor(((i + 1) / listItems.length) * 100); // 진행률 계산
-				    $('#loading-bar').width(progress + '%'); // 로딩바 업데이트
-				    $('#loading-percent').text(progress + '%'); // 퍼센트 업데이트
-		        }
-				var today = new Date();
-				var year = today.getFullYear();
-				var month = ('0' + (today.getMonth() + 1)).slice(-2);
-				var day = ('0' + today.getDate()).slice(-2);
+				}
 				
-				var dateString = year + month  + day;
-	
-				// PDF 저장 전에 로딩바 업데이트
-	    		$('#loading-bar').width('100%'); // 로딩 완료 상태로 설정
-				$('#loading-percent').text('100%'); // 퍼센트 완료
+				if(lengthFlag){
+					// 텍스트의 너비 계산
+					var textWidth = pdf.getTextWidth(nm1);
+					// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+					var centeredX = positionX + (imgWidth - textWidth) / 2;
+					pdf.text(centeredX, positionY + nmYMargin, nm1);
+
+					// 텍스트의 너비 계산
+					var textWidth = pdf.getTextWidth(nm2);
+					// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+					var centeredX = positionX + (imgWidth - textWidth) / 2;
+					if(!listItems[i].yn){
+						nmYMargin += 6.5;
+					}else{
+						nmYMargin += 5.5;
+					}
+					pdf.text(centeredX, positionY + nmYMargin, nm2);
+				}else{
+					// 텍스트의 너비 계산
+					var textWidth = pdf.getTextWidth(itemTagNm1);
+					// 이미지의 중앙 위치를 기준으로 텍스트의 위치 조정
+					var centeredX = positionX + (imgWidth - textWidth) / 2;
+					pdf.text(centeredX, positionY + nmYMargin, itemTagNm1);
+				}
+					
+				// 금액 설정
+				pdf.setTextColor(255, 0, 0); // 빨간색
+				var amtYMargin = 30;
+				amtYMargin = amtYMargin != 30 ? 30 : amtYMargin;
+				if(listItems[i].amt.length > 4){
+					if(!listItems[i].yn){
+						positionX += 3;
+						pdf.setFontSize(38); // ITEM_NM의 폰트 크기 설정
+					}else{
+						positionX += 3;
+						amtYMargin -= 6;
+						pdf.setFontSize(32); 
+					}
+					
+				}else{
+					space = space != -2 ? -2 : space;
+					if(!listItems[i].yn){
+						positionX += 3;
+						pdf.setFontSize(48); // ITEM_NM의 폰트 크기 설정
+					}else{
+						amtYMargin -= 5;
+						//positionX -= 2;
+						space += 2;
+						pdf.setFontSize(41); // ITEM_NM의 폰트 크기 설정
+					}
+					
+				}
+				pdf.text(positionX + 5, positionY + amtYMargin, listItems[i].amt);
 		
-		        pdf.save('착한가게24_가격표_' + dateString + '.pdf');
+		
+				// 원래의 폰트 크기로 되돌리기 (다음 루프에 영향을 주지 않게 하기 위해)
+				pdf.setFontSize(20);
 	
-				// 다운로드 완료 후 로딩바 숨김
-				setTimeout(function() {
-					$('#prtOverlay').hide();
-					$('#loading-container').hide();
-					$('#loading-percent').hide();
-				}, 500);
+				positionX += imgWidth + space;
+
+				// 로딩바 진행 업데이트
+				var progress = Math.floor(((i + 1) / listItems.length) * 100); // 진행률 계산
+				$('#loading-bar').width(progress + '%'); // 로딩바 업데이트
+				$('#loading-percent').text(progress + '%'); // 퍼센트 업데이트
+			}
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = ('0' + (today.getMonth() + 1)).slice(-2);
+			var day = ('0' + today.getDate()).slice(-2);
+			
+			var dateString = year + month  + day;
+
+			// PDF 저장 전에 로딩바 업데이트
+			$('#loading-bar').width('100%'); // 로딩 완료 상태로 설정
+			$('#loading-percent').text('100%'); // 퍼센트 완료
+		
+			pdf.save('착한가게24_가격표_' + dateString + '.pdf');
+	
+			// 다운로드 완료 후 로딩바 숨김
+			setTimeout(function() {
+				$('#prtOverlay').hide();
+				$('#loading-container').hide();
+				$('#loading-percent').hide();
+			}, 500);
+				
      		}, 100); // 약간의 대기 후 PDF 작업 시작
 
 	});
@@ -946,6 +955,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
