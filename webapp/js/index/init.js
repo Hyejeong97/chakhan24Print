@@ -789,14 +789,22 @@ function exupload(){
 					var drkYn = false;
 					if(ordYn == "N"){
 						if(i > 1){
-							tr.find("input.productNm").val(item[0]);
-							tr.find("input.productAmt").val(item[1]);
-							if(item[2] == "Y"){
-								drkYn = true;
+							if(item.length == 2){
+								tr.find("input.productAmt").val(item[0]);
+								if(item[1] == "Y"){
+									drkYn = true;
+								}
+								tr.find("input.drinkYn").prop("checked", drkYn);
+							}else{
+								tr.find("input.productNm").val(item[0]);
+								tr.find("input.productAmt").val(item[1]);
+								if(item[2] == "Y"){
+									drkYn = true;
+								}
+								tr.find("input.drinkYn").prop("checked", drkYn);
 							}
-							tr.find("input.drinkYn").prop("checked", drkYn);
 							// 클론한 tr을 tbody에 추가
-	    						$('#table01 tbody').append(tr);
+	    					$('#table01 tbody').append(tr);
 						}
 					}else{
 						tr.find("input.productNm").val(item[4]);
@@ -955,6 +963,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
