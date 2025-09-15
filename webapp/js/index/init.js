@@ -140,9 +140,19 @@ $(document).ready(function(){
             var titleRow = [
                 ["착한가게24 엑셀 양식 (※지우지 마세요.)"]
             ];
-			var data = [
-                { "상품명" : "", "판매금액" : "", "음료여부(N:음료아님/Y:음료)" : ""}
-            ];
+
+			var cashYn = $("input.cashYn").prop("checked");
+			var data;
+			if(cashYn){
+				data = [
+                	{ "판매금액" : "", "음료여부(N:음료아님/Y:음료)" : ""}
+            	];
+			}else{
+				data = [
+	                { "상품명" : "", "판매금액" : "", "음료여부(N:음료아님/Y:음료)" : ""}
+	            ];
+			}
+			
 
             // 2. 워크북 & 시트 생성
             var wb = XLSX.utils.book_new();
@@ -155,14 +165,25 @@ $(document).ready(function(){
 			XLSX.utils.sheet_add_json(ws, data, { origin: "A2" }); // 두 번째 행부터 데이터 추가
 
             // 3. 컬럼 너비 설정
-            ws["!cols"] = [
-                { wch: 15 }, // 컬럼 너비
-                { wch: 15 }, // 컬럼 너비
-                { wch: 25 }  // 컬럼 너비
-            ];
+			// 4. 헤더 스타일 적용 (첫 번째 행만 스타일 변경)
+            var headerCells; // 첫 번째 행의 셀 주소
+			if(cashYn){
+				ws["!cols"] = [
+	                { wch: 15 }, // 컬럼 너비
+	                { wch: 25 }  // 컬럼 너비
+	            ];
+				headerCells = ["A1", "B1"];
+			}else{
+				ws["!cols"] = [
+	                { wch: 15 }, // 컬럼 너비
+	                { wch: 15 }, // 컬럼 너비
+	                { wch: 25 }  // 컬럼 너비
+	            ];
+				headerCells = ["A1", "B1", "C1"];
+			}
+            
 
-            // 4. 헤더 스타일 적용 (첫 번째 행만 스타일 변경)
-            var headerCells = ["A1", "B1", "C1"]; // 첫 번째 행의 셀 주소
+            
 
             headerCells.forEach(cell => {
                 if (ws[cell]) {
@@ -925,6 +946,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
