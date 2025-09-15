@@ -257,6 +257,7 @@ th {
       <button class="schBtn">검색</button>
     </div>
     <div>
+	  <input type="checkbox" class="cashYn" style="zoom:1.2;"> 금액만
       <button class="exuBtn">엑셀업로드</button>
       <button class="addBtn">추가</button>
       <button class="delBtn">삭제</button>
@@ -268,7 +269,7 @@ th {
     <thead>
       <tr>
         <th></th>
-        <th>상품명</th>
+        <th class="onlyCash">상품명</th>
         <th>금액</th>
         <th>음료여부</th>
       </tr>
@@ -281,7 +282,7 @@ th {
     <tfoot style="display:none;">
       <tr>
         <td><input type="checkbox" class="chkYn" style="zoom:1.2;"></td>
-        <td><input type="text" class="productNm" maxlength="16" placeholder="상품명 입력"></td>
+        <td><input type="text" class="productNm onlyCash" maxlength="16" placeholder="상품명 입력"></td>
         <td><input type="text" class="productAmt" maxlength="5" placeholder="숫자만 입력" 
           oninput="this.value=this.value.replace(/[^0-9]/g,'');"></td>
         <td><input type="checkbox" class="drinkYn" style="zoom:1.2;"></td>
@@ -391,6 +392,7 @@ th {
 
 </body>
 </html>
+
 
 
 
