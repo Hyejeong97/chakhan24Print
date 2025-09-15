@@ -23,6 +23,11 @@ $(document).ready(function(){
 		openModal("qDialog", "도움말", "800", "600", null, null, null);
 	});
 
+	//금액만 체크 시
+	$(".cashYn").on("click", function(){
+		$(".onlyCash").css("display", "none");
+	});
+
 
 	// 버튼 클릭 시
     $('.pdBtn').click(function() {
@@ -920,6 +925,7 @@ function openModal( id, title, width, height, fnConfirm, fnCancel, fnAddBtn  ) {
 	});
 	
 }
+
 
 
 
