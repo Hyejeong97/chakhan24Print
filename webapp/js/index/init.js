@@ -514,7 +514,7 @@ $(".schBtn").on('click', function(){
 					
 				}
 				if(cashYn){
-					pdf.text(positionX + 5, positionY + amtYMargin - 7, listItems[i].amt);
+					pdf.text(positionX + 6, positionY + amtYMargin - 7, listItems[i].amt);
 				}else{
 					pdf.text(positionX + 5, positionY + amtYMargin, listItems[i].amt);
 				}
