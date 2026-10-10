@@ -367,7 +367,7 @@ $(".schBtn").on('click', function(){
 		    var img = new Image();
 			var imgSrc;
 			if(cashYn){
-				imgSrc = './webapp/img/form2.jpg';
+				imgSrc = './webapp/img/newForm2.png';
 			}else{
 				imgSrc = './webapp/img/form.jpg';
 			}
